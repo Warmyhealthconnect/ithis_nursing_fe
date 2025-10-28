@@ -1,59 +1,65 @@
 import React from "react";
 import "./Footer.css";
-import { Link } from "react-router-dom";
 
-function Footer() {
+export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        {/* --- Column 1: Logo/About --- */}
-        <div className="footer-column">
-          <img src="/HeaderImg/HeaderLogo.png" alt="Logo" className="footer-logo" />
-          <p>
-            Our institution is committed to excellence in education, innovation, and research.
-            Join us to shape your future with knowledge and purpose.
-          </p>
-        </div>
+    <footer className="im-footer" role="contentinfo" aria-label="Site footer">
+      <div className="im-container">
+        <div className="im-grid">
+          {/* Column 1 - Main Links */}
+          <div className="im-links main-links">
+            <nav className="im-nav" aria-label="Main footer navigation">
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Department</a>
+              <a href="#">Academics</a>
+              <a href="#">Admission</a>
+            </nav>
+          </div>
 
-        {/* --- Column 2: Quick Links --- */}
-        <div className="footer-column">
-          <h4>Quick Links</h4>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/admission">Admissions</Link>
-          <Link to="/contact">Contact</Link>
-        </div>
+          {/* Column 2 - Extra Links */}
+          <div className="im-links extra-links">
+            <nav className="im-nav" aria-label="Additional footer navigation">
+              <a href="#">Annexure</a>
+              <a href="#">Facilities</a>
+              <a href="#">News & Events</a>
+              <a href="#">Career</a>
+              <a href="#">Contact</a>
+            </nav>
+          </div>
 
-        {/* --- Column 3: Departments --- */}
-        <div className="footer-column">
-          <h4>Departments</h4>
-          <Link to="/departments/cse">Computer Science</Link>
-          <Link to="/departments/eee">Electrical</Link>
-          <Link to="/departments/mech">Mechanical</Link>
-          <Link to="/departments/civil">Civil</Link>
-        </div>
-
-        {/* --- Column 4: Contact --- */}
-        <div className="footer-column">
-          <h4>Contact Us</h4>
-          <p>📍 Pantheerankavu, Kozhikode, Kerala</p>
-          <p>📞 +91 98765 43210</p>
-          <p>📧 info@college.edu</p>
-
-          <div className="social-icons">
-            <i className="fa-brands fa-facebook-f"></i>
-            <i className="fa-brands fa-instagram"></i>
-            <i className="fa-brands fa-linkedin-in"></i>
-            <i className="fa-brands fa-youtube"></i>
+          {/* Column 3 - Contact Info */}
+          <div className="im-contact">
+            <div>
+              <span className="im-label">Email :</span>{" "}
+              <a href="mailto:iletcollgeofnursing@gmail.com">
+                iletcollgeofnursing@gmail.com
+              </a>
+            </div>
+            <div>
+              <span className="im-label">Phone :</span> +91 79022 88886, +91 79022 88899
+            </div>
+            <div>
+              <span className="im-label">Address :</span> Near Intel City, Oorakam
+              Malappuram/Perinthalmanna
+            </div>
+            <div>
+              <span className="im-label">Social :</span> In · Fb
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="footer-bottom">
-        © 2025 Your Institute Name. All rights reserved.
+        {/* Bottom Wordmark Row */}
+        <div className="im-wordmark">
+          <h1>ithismedicity</h1>
+        </div>
+
+        {/* Footer Bottom Bar */}
+        <div className="im-bottom">
+          <div>© {new Date().getFullYear()} ithismedicity. All rights reserved.</div>
+          <div>Designed by Warmy health connect</div>
+        </div>
       </div>
     </footer>
   );
 }
-
-export default Footer;
