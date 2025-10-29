@@ -1,65 +1,59 @@
-import React from "react";
-import "./Footer.css";
+import React, { useState } from 'react'
+import './Footer.css'
+import { Link, useNavigate } from 'react-router-dom'
 
-export default function Footer() {
+
+function Footer() {
+ 
   return (
-    <footer className="im-footer" role="contentinfo" aria-label="Site footer">
-      <div className="im-container">
-        <div className="im-grid">
-          {/* Column 1 - Main Links */}
-          <div className="im-links main-links">
-            <nav className="im-nav" aria-label="Main footer navigation">
-              <a href="#">Home</a>
-              <a href="#">About</a>
-              <a href="#">Department</a>
-              <a href="#">Academics</a>
-              <a href="#">Admission</a>
-            </nav>
+    <>
+      <div className='footer_container'>
+        <h2>Empowering a brighter,healthier <br /> future with Ithis Medicity <br /><hr /></h2>
+        <div className='row'>
+          <div className="col footer_container_1 ">
+            <div className='logo_container mb-5'>
+              <Link to={'/'}>
+                <img src="/Footer/footerLogo.png" className='img-fluid' alt="footerLogo" />
+              </Link>
+            </div>
+            <h6>a world where knowledge meets kindness, science meets service, and learning becomes a lifelong commitment to humanity.</h6>
           </div>
-
-          {/* Column 2 - Extra Links */}
-          <div className="im-links extra-links">
-            <nav className="im-nav" aria-label="Additional footer navigation">
-              <a href="#">Annexure</a>
-              <a href="#">Facilities</a>
-              <a href="#">News & Events</a>
-              <a href="#">Career</a>
-              <a href="#">Contact</a>
-            </nav>
+          <div className="col d-flex justify-content-evenly">
+            <ul className='list-unstyled d-flex flex-column gap-2 gap-md-4'>
+              <li><Link className='text-decoration-none text-light' to="/">Home</Link></li>
+              <li><Link className='text-decoration-none text-light' to="/about">About</Link></li>
+              <li><Link className='text-decoration-none text-light' to="/bscnursing">BSc Nursing</Link></li>
+              <li><Link className='text-decoration-none text-light' to="/dpharm">D Pharm </Link></li>
+            </ul>
+            <ul className='list-unstyled d-flex flex-column gap-2 gap-md-4'>
+              <li><Link className='text-decoration-none text-light' to="/gallery">Facilities</Link></li>
+              <li><Link className='text-decoration-none text-light' to="/admission">Admission</Link></li>
+              <li><Link className='text-decoration-none text-light' to="/career">Career</Link></li>
+              <li><Link className='text-decoration-none text-light' to="/contact">Contact</Link></li>
+              <li style={{ cursor: "pointer" }}>Admin Login</li>
+            </ul>
           </div>
-
-          {/* Column 3 - Contact Info */}
-          <div className="im-contact">
-            <div>
-              <span className="im-label">Email :</span>{" "}
-              <a href="mailto:iletcollgeofnursing@gmail.com">
-                iletcollgeofnursing@gmail.com
-              </a>
-            </div>
-            <div>
-              <span className="im-label">Phone :</span> +91 79022 88886, +91 79022 88899
-            </div>
-            <div>
-              <span className="im-label">Address :</span> Near Intel City, Oorakam
-              Malappuram/Perinthalmanna
-            </div>
-            <div>
-              <span className="im-label">Social :</span> In · Fb
-            </div>
+          <div className="col d-flex justify-content-center">
+            <ul className='list-unstyled d-flex flex-column gap-md-4'>
+              <li><div><p><i class="fa-solid fa-envelope fa-sm text-white"></i> Email : ietcollegeofnursing@gmail.com</p></div></li>
+              <li><div><p><i class="fa-solid fa-phone fa-sm text-white"></i> Phone : +91 79022 88866, +91 7902288899</p></div></li>
+              <li className='d-flex'><div><p><i class="fa-solid fa-location-dot fa-sm text-white"></i> Location :</p> </div> <div><p>Near Inkel City, Oorakam Melmuri,<br /> Panakkad PO,676519</p></div></li>
+            </ul>
           </div>
-        </div>
-
-        {/* Bottom Wordmark Row */}
-        <div className="im-wordmark">
-          <h1>ithismedicity</h1>
-        </div>
-
-        {/* Footer Bottom Bar */}
-        <div className="im-bottom">
-          <div>© {new Date().getFullYear()} ithismedicity. All rights reserved.</div>
-          <div>Designed by Warmy health connect</div>
+          <div className='social_container'>
+            <span><i class="fa-brands fa-instagram fa-xs fa-md-lg text-white me-2"></i></span>
+            <span><i class="fa-brands fa-square-facebook fa-xs fa-md-lg text-white"></i></span>
+          </div>
         </div>
       </div>
-    </footer>
-  );
+      <div className='footer_copyright d-flex justify-content-between px-4 pt-3 pb-2'>
+        <div className=''>Copyright &copy;2025 Ithis medicity. All rights reserved</div>
+        <div className=' '>Designed by Warmy health connect</div>
+      </div>
+
+      {/* Modal Component */}
+    </>
+  )
 }
+
+export default Footer

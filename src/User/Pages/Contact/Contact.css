@@ -1,0 +1,19 @@
+.contact_section1{
+    /* margin: 8% 0%; */
+    padding: 4%;
+}
+
+.contact_section2{
+    margin: 8% 0%;
+}
+
+.icon_bg,.submit_btn{
+    background-color: #112237;
+    color: white;
+}
+
+.submit_btn:hover{
+    background-color:white ;
+    border: 2px solid #112237;
+    color: #112237;
+}

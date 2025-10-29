@@ -1,0 +1,119 @@
+/* --- PAGE CONTAINER STYLING --- */
+.news-page-container {
+    max-width: 1200px;
+    /* Limits the content width */
+    margin: 0 auto;
+    /* Centers the content */
+    padding: 50px 20px;
+}
+
+/* --- NEWS ITEMS LAYOUT --- */
+.news-items-container {
+    display: flex;
+    justify-content: center;
+    /* Centers items horizontally */
+    align-items: flex-start;
+    /* Aligns items to the top */
+    gap: 30px;
+    /* Space between the two boxes */
+}
+
+/* --- BASE BOX STYLING --- */
+.news-box {
+    /* This ensures the boxes can grow to fill the width. You can keep your fixed widths if preferred, 
+     but setting this to '1' is the flexible, responsive way to share space. */
+    flex: 1 1 0%;
+    border-radius: 8px;
+    background-color: #fff;
+    /* Added subtle shadow for completeness */
+}
+
+/* --- LEFT ITEM: IMAGE NOTICE STYLING --- */
+.image-notice-box {
+    width: 50%;
+    /* Take up half the space */
+    max-width: 500px;
+    padding: 0;
+    /* No padding needed for an image that fills the box */
+    overflow: hidden;
+    /* Ensures the image respects the border-radius */
+}
+
+.notice-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.text-announcement-box {
+    /* Set explicit width based on your design preference. 
+     You can use a percentage (e.g., width: 50%) or a fixed width (e.g., width: 550px). */
+    width: 50%;
+    max-width: 600px;
+
+    padding: 40px;
+    background-color: #E6E4D445;
+
+    /* CRITICAL: Allows content to be pushed apart vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Keeps the text at the top */
+    align-items: flex-start;
+}
+
+.announcement-english {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.announcement-malayalam {
+    /* ... (other styles) ... */
+    margin-bottom: 30px;
+    /* CRITICAL: Pushes the 'Apply Now' button down to the bottom of the stretched box */
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* --- BUTTON STYLING --- */
+.apply-now-button {
+    /* Style matching the dark button in the image */
+    background-color: #081c34;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.apply-now-button:hover {
+    background-color: #0d293d;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 992px) {
+    .news-items-container {
+        flex-direction: column;
+        /* Stack items vertically on small screens */
+        align-items: center;
+    }
+
+    .image-notice-box,
+    .text-announcement-box {
+        width: 100%;
+        max-width: 600px;
+        /* Limit overall width */
+    }
+
+    .text-announcement-box {
+        min-height: auto;
+        /* Remove fixed height when stacked */
+    }
+}

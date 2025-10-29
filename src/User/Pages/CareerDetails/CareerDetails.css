@@ -1,0 +1,36 @@
+.career-details-container {
+    padding: 30px;
+}
+
+.heading-div {
+    margin-top: 60px;
+}
+
+.job-details-container {
+    border: 2px solid rgba(0, 0, 0, 0.066);
+    margin-top: 40px;
+    padding: 40px;
+
+}
+
+.job-details{
+    margin-bottom: 70px;
+}
+
+.job-details h1{
+    font-size: 30px;
+}
+.job-details p{
+    font-size: 18px;
+}
+
+.job-description h1{
+    font-size: 30px;
+    font-weight: 600;
+    
+}
+
+.job-description p{
+    color: #646464;
+    font-size: 20px;
+}

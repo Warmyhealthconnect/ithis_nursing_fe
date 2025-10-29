@@ -30,12 +30,12 @@ function Header() {
       </div>
 
       {/* Slide-down Menu */}
-      <nav className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+      <nav className={`mobile-menu ${menuOpen ? "open" : ""}`} onClick={()=>setMenuOpen(!menuOpen)}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
 
         {/* Academics Dropdown */}
-        <details>
+        <details  onClick={(e) => e.stopPropagation()}>
           <summary>Academics<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             <Link to="/academics/ug">Undergraduate</Link>
@@ -45,7 +45,7 @@ function Header() {
         </details>
 
         {/* Departments Dropdown */}
-        <details>
+        <details  onClick={(e) => e.stopPropagation()}>
           <summary>Departments<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             <Link to="/departments/cse">Computer Science</Link>
@@ -55,7 +55,7 @@ function Header() {
         </details>
 
         {/* Admission Dropdown */}
-        <details>
+        <details  onClick={(e) => e.stopPropagation()}>
           <summary>Admission<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             <Link to="/admission/criteria">Criteria</Link>
@@ -65,7 +65,7 @@ function Header() {
         </details>
 
         {/* Annexure Dropdown */}
-        <details>
+        <details  onClick={(e) => e.stopPropagation()}>
           <summary>Annexure <span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             <Link to="/annexure/a">Annexure A</Link>

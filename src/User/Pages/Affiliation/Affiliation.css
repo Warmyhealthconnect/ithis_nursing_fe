@@ -1,0 +1,83 @@
+/* --- CONTAINER STYLING --- */
+.affi-container {
+    margin-top: 50px;
+    margin-bottom: 90px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    /* Optional: Limit max-width and add padding for better centering on large screens */
+    max-width: 1400px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- AFFILIATION BOX STYLING --- */
+.affi-boxes {
+    /* Background and Shadow for the Card Look */
+    background-color: #E6E4D445; /* Solid white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for lift */
+    
+    /* Content Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    padding: 50px 20px;
+    
+    /* Size adjustments */
+    width: 850px; /* Adjusted from 400px to better fit the layout */
+    /* Removed fixed height: 600px; to allow content to define the height naturally */
+}
+
+/* For the third box placeholder shown in the image */
+.placeholder-box {
+    opacity: 0.5; /* Visually suggests it's a partially visible item */
+    visibility: hidden; /* Hide content while maintaining structure for layout */
+    min-width: 350px;
+}
+
+/* --- LOGO STYLING --- */
+.affi-logo {
+    width: 100px; /* Size of the logo */
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 25px;
+}
+
+/* --- TYPOGRAPHY STYLING --- */
+.affi-heading {
+    font-size: 30px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.affi-text {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px; /* Space above the button */
+    /* Important for aligning text block across different box heights */
+    flex-grow: 1; 
+}
+
+/* --- BUTTON STYLING --- */
+.affi-button {
+    /* Style matching the dark button in the image */
+    background-color: #031834; /* A dark navy/blue color */
+    color: white;
+    font-size: 20px;
+    width: 150px;
+    font-weight: 500;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* In case you make it an <a> tag later */
+}
+
+.affi-button:hover {
+    background-color: #0d293d;
+}
