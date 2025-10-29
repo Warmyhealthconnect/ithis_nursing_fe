@@ -1,83 +1,418 @@
 /* Banner Section */
 .banner {
-  position: relative;
-  width: 100%;
-  height: 92vh;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 92vh;
+    overflow: hidden;
 }
 
 /* Background Video */
 .banner-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Text Overlay */
 .banner-text {
-  position: absolute;
-  top: 50%;
-  transform: translate(0%, -50%);
-  color: #fff;
-  text-align: start;
-  z-index: 2;
-  padding: 0 5vw;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    color: #fff;
+    text-align: start;
+    z-index: 2;
+    padding: 0 5vw;
 }
 
 .banner-text p {
-  font-size: 3.5vw;
-  font-weight: 400;
-  padding-right: 35%;
-  color: #f1f1f1;
-  line-height: 1.1;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    font-size: 3.5vw;
+    font-weight: 400;
+    padding-right: 35%;
+    color: #f1f1f1;
+    line-height: 1.1;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Overlay gradient (optional for readability) */
 .banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
-  z-index: 1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    z-index: 1;
 }
+
+.broadcast-section {
+    background-color: black;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    /* REMOVE: justify-content: center; - This can interfere with the left-to-right flow */
+}
+
+.broadcast-text {
+    color: white;
+    display: inline-block;
+    /* REMOVE: padding-left: 100%; - This is the primary cause of the initial massive gap */
+
+    /* Animation remains the same speed/duration */
+    animation: scroll-loop 15s linear infinite;
+    margin: 0;
+}
+
+@keyframes scroll-loop {
+
+    /* Start the element at its natural position (no offset) */
+    0% {
+        transform: translateX(0);
+    }
+
+    /* Move the element exactly 50% of its width. 
+       Since the text is duplicated, this pulls the first copy off-screen 
+       and perfectly aligns the second copy at the start of the container. 
+       The animation then resets to 0% instantly, creating the seamless loop. */
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+.home_section_1_container {
+    margin: 20vh 0vw;
+    padding: 2vh 5vw;
+    text-align: center;
+}
+
+.home_section_1_container h2 {
+    font-size: 1.7vw;
+    display: inline-block;
+    margin-bottom: 10vh;
+    padding: .6vh 2vw;
+    background-color: #E6E4D4;
+    border-radius: 5px;
+}
+
+.home_section_1_container p {
+    font-size: 2vw;
+    text-align: start;
+    padding-right: 25%;
+}
+
+.home_section_2 {
+    padding: 5vh 0;
+}
+
+
+.home_section_2_img_container img {
+    margin-bottom: 8%;
+}
+
+.home_section_2_img_container2 {
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-end;
+    height: 100%;
+}
+
+.home_section_2_img_container2 img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.home_section_3_container {
+    margin: 20vh 0vw;
+    padding: 2vh 5vw;
+    text-align: center;
+}
+
+.home_section_3_container h2 {
+    font-size: 1.7vw;
+    display: inline-block;
+    margin-bottom: 10vh;
+    padding: .6vh 2vw;
+    background-color: #E6E4D4;
+    border-radius: 5px;
+}
+
+.home_section_3_container p {
+    font-size: 3vw;
+    text-align: center;
+    padding: 0vh 8vw;
+}
+
+.home_section_4_container_col2 {
+    background-color: #183a62;
+    background-image: url(/White_logo.png);
+    /* ✅ correct your path (no /public needed) */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    /* reduce size — adjust between 20–40% */
+    position: relative;
+    color: white;
+}
+
+.home_section_4_text_cont {
+    height: 100%;
+}
+
+.home_section_4_text_cont p {
+    font-size: 2vw;
+}
+
+.home_section_4_text_cont h2 {
+    font-size: 3vw;
+}
+
+/* 💧 Add opacity effect with overlay */
+.home_section_4_container_col2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(24, 58, 98, 0.9);
+    /* slight overlay */
+    z-index: 1;
+}
+
+/* make sure text appears above the overlay */
+.home_section_4_container_col2>* {
+    position: relative;
+    z-index: 2;
+}
+
+.home_section_5 {
+    background-color: #F8F8F3;
+    padding: 15vh 0vw;
+}
+
+.home_section_5_container p {
+    font-size: 1.5vw;
+    padding-top: 9vh;
+}
+
+.home_section_5_imgtxt_container {
+    background-color: #183a62;
+    text-align: center;
+    color: wheat;
+    padding: 2vh 0vw;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+.home_section_5_img_container img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+.home_section_6_img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.home_section_6 .row {
+    border: none;
+    margin: 2vh 5vw;
+    padding: 0;
+}
+
+.home_section_6_card_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.home_section_6_card_text h3,
+.home_section_6_card_text p {
+    padding: 0vh 2vw;
+}
+
+.home_section_6_card_text p {
+    font-size: 1.1vw;
+}
+
+.home_section_6_card_text h3 {
+    font-size: 1.4vw;
+}
+
+.home_section_6_img_cnt2{
+    border-left: 1px solid grey;
+}
+
+.home_section_6_img_cnt3{
+    border-left: 1px solid grey;
+}
+
+.home_section_6_img_cnt4{
+    border-left: 1px solid grey;
+}
+
+.home_section_6_img_cnt5{
+    border-top: 1px solid grey;
+}
+
+.home_section_6_img_cnt6{
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+}
+
+.home_section_6_img_cnt7{
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+}
+
+.home_section_6_img_cnt8{
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+}
+
+/* Last column (View More) */
+.home_section_6_viewmore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.home_section_6_viewmore a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #183A62;
+  transition: all 0.3s ease;
+}
+
+.home_section_6_viewmore a:hover {
+  color: #0d6efd;
+}
+
+
 
 /* --- Tablet View --- */
 @media (max-width: 992px) {
-  .banner {
-    height: 80vh;
-  }
+    .banner {
+        height: 80vh;
+    }
 
-  .banner-text h1 {
-    font-size: 5vw;
-  }
+    .banner-text h1 {
+        font-size: 5vw;
+    }
 
-  .banner-text p {
-    font-size: 1.8vw;
-  }
+    .banner-text p {
+        font-size: 1.8vw;
+    }
 }
 
 /* --- Mobile View --- */
 @media (max-width: 576px) {
-  .banner {
-    height: 60vh;
-  }
+    .banner {
+        height: 60vh;
+    }
 
-  .banner-text {
-    top: 55%;
-    padding: 0 8vw;
-  }
+    .banner-text {
+        top: 55%;
+        padding: 0 8vw;
+    }
 
-  .banner-text h1 {
-    font-size: 4vw;
-    line-height: 1.2;
-  }
+    .banner-text h1 {
+        font-size: 4vw;
+        line-height: 1.2;
+    }
 
-  .banner-text p {
-    font-size: 4.5vw;
-    line-height: 1.5;
-  }
+    .banner-text p {
+        font-size: 4.5vw;
+        line-height: 1.5;
+    }
+
+    .home_section_2 .row {
+        flex-direction: column-reverse;
+        padding: 0 2vw;
+    }
+
+    .home_section_2_img_container,
+    .home_section_2_img_container2 {
+        text-align: center;
+    }
+
+    .home_section_2_img_container img,
+    .home_section_2_img_container2 img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .home_section_2 p {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .home_section_2 button {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .home_section_5 {
+        padding: 2rem 1.5rem;
+    }
+
+    .home_section_5_container {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 0 !important;
+    }
+
+    .home_section_5_container .col {
+        width: 100%;
+        padding: 0 !important;
+    }
+
+    .home_section_5_container p {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 1.2rem;
+    }
+
+    /* 📍 Principal text block appears first */
+    .home_section_5_imgtxt_container {
+        background-color: #183A62;
+        color: white;
+        margin: 0 auto;
+        width: 100%;
+        order: 1;
+    }
+
+    .home_section_5_imgtxt_container h3 {
+        font-size: 3vw;
+        margin-bottom: 0.5rem;
+    }
+
+    .home_section_5_imgtxt_container h6 {
+        font-size: 2vw;
+        line-height: 1.4;
+    }
+
+    /* 📸 Image appears below text */
+    .home_section_5_img_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home_section_5_img_container img {
+        width: 100%;
+        height: auto;
+        margin-top: 1rem;
+    }
+
 }

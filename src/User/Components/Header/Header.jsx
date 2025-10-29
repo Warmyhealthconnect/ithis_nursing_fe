@@ -48,9 +48,9 @@ function Header() {
         <details  onClick={(e) => e.stopPropagation()}>
           <summary>Departments<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
-            <Link to="/departments/cse">Computer Science</Link>
-            <Link to="/departments/eee">Electrical</Link>
-            <Link to="/departments/mech">Mechanical</Link>
+            <Link to="/departments">Computer Science</Link>
+            <Link to="/departments">Electrical</Link>
+            <Link to="/departments">Mechanical</Link>
           </div>
         </details>
 
@@ -75,6 +75,7 @@ function Header() {
 
         <Link to="/facilities">Facilities</Link>
         <Link to="/news-events">News & Events</Link>
+        <Link to="/affiliations">Affiliations</Link>
         <Link to="/gallery">Gallery</Link>
         <Link to="/career">Career</Link>
         <Link to="/contact">Contact</Link>
