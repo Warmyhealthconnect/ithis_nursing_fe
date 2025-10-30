@@ -1,0 +1,146 @@
+.fac-dep-heading {
+    width: 50%;
+    padding: 5%;
+}
+
+.fac-dep-heading h1 {
+    font-size: 35px;
+}
+
+.fac-foundation-section {
+    padding-top: 5%;
+    margin-top: 80px;
+    display: flex;
+    align-items: stretch;
+    gap: 80px;
+    margin-bottom: 200px;
+}
+
+.fac-foundation-content {
+    height: auto;
+    padding: 4%;
+    flex: 1;
+}
+
+.fac-foundation-number {
+    font-size: 30px;
+    color: #05050599;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.fac-foundation-para {
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.fac-foundation-para p {
+    font-size: 25px;
+    color: #050505B2;
+}
+
+.fac-img-section {
+    flex: 1;
+    overflow: hidden;
+}
+
+.fac-img-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .fac-dep-heading {
+        width: 60%;
+        padding: 4%;
+    }
+
+    .fac-dep-heading h1 {
+        font-size: 32px;
+    }
+
+    .fac-foundation-section {
+        gap: 60px;
+        margin-bottom: 160px;
+    }
+
+    .fac-foundation-para {
+        margin-top: 220px;
+    }
+
+    .fac-foundation-para p {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 900px) {
+    .fac-dep-heading {
+        width: 100%;
+        padding: 3% 4%;
+    }
+
+    .fac-dep-heading h1 {
+        font-size: 28px;
+    }
+
+    .fac-foundation-section {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 40px;
+        margin-bottom: 80px;
+        padding-top: 2%;
+    }
+
+    .fac-foundation-content {
+        padding: 3%;
+    }
+
+    .fac-foundation-para {
+        margin-top: 20px;
+        gap: 24px;
+    }
+
+    .fac-foundation-para p {
+        font-size: 18px;
+    }
+
+    .fac-img-section {
+        width: 100%;
+        height: auto;
+    }
+
+    .fac-img-section img {
+        height: auto;
+        object-fit: cover;
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fac-dep-heading h1 {
+        font-size: 22px;
+    }
+
+    .fac-foundation-number {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .fac-foundation-para p {
+        font-size: 16px;
+        gap: 20px;
+    }
+
+    .fac-img-section img {
+        max-height: 320px;
+    }
+
+    .fac-foundation-content {
+        padding: 2% 3%;
+    }
+}

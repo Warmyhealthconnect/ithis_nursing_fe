@@ -11,6 +11,8 @@ import Contact from './User/Pages/Contact/Contact'
 import Career from './User/Pages/Career/Career'
 import Carrerdetails from './User/Pages/CareerDetails/CareerDetails'
 import Department from './User/Pages/Department/Department'
+import Facilities from './User/Pages/Facilities/Facilities'
+import Admission from './User/Pages/Admission/Admission'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +29,8 @@ function App() {
         <Route path='/career' element={<Career />} />
         <Route path='/careerdetails' element={<Carrerdetails />} />
         <Route path='/departments' element={<Department />} />
+        <Route path='/facilities' element={<Facilities />} />
+        <Route path='/admission' element={<Admission />} />
       </Routes>
       <Footer/>
     </>

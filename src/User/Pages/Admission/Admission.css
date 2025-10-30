@@ -1,0 +1,216 @@
+.admission-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* Left Info Column */
+.info-column {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    height: 900px;
+}
+
+.admission-heading h1 {
+    font-weight: 600;
+    font-size: 30px;
+    color: #000;
+}
+
+.info-box {
+    font-size: 18px;
+    margin-top: 40px;
+    line-height: 1.6;
+}
+
+.img-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 50px;
+    background-image: url("/admissionimg.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+/* Right Form Column */
+.form-column {
+    position: relative;
+    /* Needed for fixed button inside */
+    background-color: var(--secondary);
+    border-radius: 20px;
+    height: 900px;
+    /* Same as left column */
+    padding: 20px 50px 80px 50px;
+    /* Extra bottom padding for button */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 100%;
+    overflow-y: auto;
+    padding-bottom: 70px;
+    /* space for fixed button */
+}
+
+.row-inputs {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.row-inputs label {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.row-inputs input,
+.row-inputs select {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.row-inputs input[type="file"] {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.full-width {
+    flex: 1 1 100%;
+}
+
+.gender-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+
+.gender-label {
+    font-weight: 500;
+}
+
+.gender-options label {
+    margin: 0;
+    font-weight: 400;
+}
+
+.gender-options input[type="radio"] {
+    vertical-align: middle;
+}
+
+
+.nationality_options label {
+    margin: 0;
+    font-weight: 500;
+}
+
+.nationality_options input[type="radio"] {
+    vertical-align: middle;
+}
+
+.marks-section {
+    margin-bottom: 20px;
+}
+
+.marks-section-label {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.marks-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.marks-label {
+    flex: 1;
+    /* left side takes 1 part */
+    font-weight: 500;
+}
+
+.marks-input {
+    flex: 2;
+    /* input field takes 2 parts */
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+
+/* Fixed button at bottom */
+.form-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+}
+
+.form-button button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* Subtle scrollbar style */
+.form-column::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form-column::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+/* ---------------------------------
+   Responsive (Average Mobile)
+---------------------------------- */
+@media (max-width: 768px) {
+    .admission-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-column,
+    .form-column {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+    }
+
+    .img-container {
+        height: 250px;
+    }
+
+    .form-column {
+        overflow-y: visible;
+    }
+}
