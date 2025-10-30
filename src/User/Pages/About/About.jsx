@@ -14,7 +14,7 @@ function About() {
                     </h1>
                 </div>
 
-                <div className='img-container'>
+                <div className='img-container2'>
                     <img src="/about/aboutusimg.png" style={{ borderRadius: "20px" }} className='img-fluid' alt="" />
                 </div>
 
