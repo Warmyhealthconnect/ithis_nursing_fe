@@ -45,41 +45,43 @@
     z-index: 1;
 }
 
-.broadcast-section {
-    background-color: black;
-    height: 80px;
-    display: flex;
-    align-items: center;
+.broadcast-wrapper {
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    /* REMOVE: justify-content: center; - This can interfere with the left-to-right flow */
+    background: #000;
+    /* optional background */
+    padding: 10px 0;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .broadcast-text {
-    color: white;
     display: inline-block;
-    /* REMOVE: padding-left: 100%; - This is the primary cause of the initial massive gap */
-
-    /* Animation remains the same speed/duration */
-    animation: scroll-loop 15s linear infinite;
-    margin: 0;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    white-space: nowrap;
+    animation: scroll-loop 10s linear infinite;
 }
 
+.broadcast-text span {
+    display: inline-block;
+    padding-right: 3rem;
+    /* spacing between copies */
+}
+
+/* Smooth infinite horizontal scroll */
 @keyframes scroll-loop {
-
-    /* Start the element at its natural position (no offset) */
     0% {
-        transform: translateX(0);
+        transform: translateX(200%);
     }
 
-    /* Move the element exactly 50% of its width. 
-       Since the text is duplicated, this pulls the first copy off-screen 
-       and perfectly aligns the second copy at the start of the container. 
-       The animation then resets to 0% instantly, creating the seamless loop. */
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
 }
+
 
 
 .home_section_1_container {
@@ -243,57 +245,66 @@
     font-size: 1.4vw;
 }
 
-.home_section_6_img_cnt2{
+.home_section_6_img_cnt2 {
     border-left: 1px solid grey;
 }
 
-.home_section_6_img_cnt3{
+.home_section_6_img_cnt3 {
     border-left: 1px solid grey;
 }
 
-.home_section_6_img_cnt4{
+.home_section_6_img_cnt4 {
     border-left: 1px solid grey;
 }
 
-.home_section_6_img_cnt5{
+.home_section_6_img_cnt5 {
     border-top: 1px solid grey;
 }
 
-.home_section_6_img_cnt6{
-    border-top: 1px solid grey;
-    border-left: 1px solid grey;
-}
-
-.home_section_6_img_cnt7{
+.home_section_6_img_cnt6 {
     border-top: 1px solid grey;
     border-left: 1px solid grey;
 }
 
-.home_section_6_img_cnt8{
+.home_section_6_img_cnt7 {
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+}
+
+.home_section_6_img_cnt8 {
     border-top: 1px solid grey;
     border-left: 1px solid grey;
 }
 
 /* Last column (View More) */
 .home_section_6_viewmore {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
 }
 
 .home_section_6_viewmore a {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #183A62;
-  transition: all 0.3s ease;
+    /* text-decoration: none; */
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #183A62;
+    transition: all 0.3s ease;
 }
 
+.home_section_6_viewmore i {
+    display: inline-block;
+    transform: rotate(-45deg);
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+
 .home_section_6_viewmore a:hover {
-  color: #0d6efd;
+    color: #081427;
+    scale: .9;
 }
 
 
@@ -314,105 +325,258 @@
 }
 
 /* --- Mobile View --- */
+/* --- Mobile Banner Fix --- */
 @media (max-width: 576px) {
     .banner {
-        height: 60vh;
+        height: 84vh;
+        /* make banner fill screen */
+        position: relative;
+        margin-top: 60px;
+        /* push down if navbar is fixed */
+    }
+
+    .banner-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* ensure full coverage */
+        object-position: center;
     }
 
     .banner-text {
-        top: 55%;
-        padding: 0 8vw;
-    }
-
-    .banner-text h1 {
-        font-size: 4vw;
-        line-height: 1.2;
+        position: absolute;
+        top: 90%;
+        text-align: start;
+        padding: 0 5vw;
     }
 
     .banner-text p {
-        font-size: 4.5vw;
-        line-height: 1.5;
+        font-size: 5vw;
+        line-height: 1.4;
+        color: #fff;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .broadcast-section {
+        height: 5vh;
+        /* smaller height for phones */
+        padding: 0 10px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .broadcast-text {
+        font-size: 10px;
+        /* smaller font for better fit */
+        line-height: 1.4;
+        animation: scroll-loop 10s linear infinite;
+        /* slower scroll for readability */
+    }
+
+    @keyframes scroll-loop {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .home_section_1_container {
+        margin: 8vh 0;
+        /* reduce large top/bottom gaps */
+        padding: 2vh 5vw;
+        text-align: center;
+    }
+
+    .home_section_1_container h2 {
+        font-size: 3.5vw;
+        /* scale heading size */
+        margin-bottom: 4vh;
+        padding: 0.6vh 4vw;
+        background-color: #E6E4D4;
+        border-radius: 5px;
+    }
+
+    .home_section_1_container p {
+        font-size: 3.8vw;
+        /* readable on small screens */
+        text-align: justify;
+        padding: 0 2vw;
+        margin-bottom: 0px;
+        /* reduced side padding */
+        line-height: 1.6;
+    }
+
+    .home_section_2 {
+        padding: vh 0vw;
     }
 
     .home_section_2 .row {
-        flex-direction: column-reverse;
-        padding: 0 2vw;
-    }
-
-    .home_section_2_img_container,
-    .home_section_2_img_container2 {
-        text-align: center;
-    }
-
-    .home_section_2_img_container img,
-    .home_section_2_img_container2 img {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .home_section_2 p {
-        font-size: 14px;
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .home_section_2 button {
-        display: block;
-        margin: 10px auto;
-    }
-
-    .home_section_5 {
-        padding: 2rem 1.5rem;
-    }
-
-    .home_section_5_container {
-        flex-direction: column !important;
-        text-align: center;
-        padding: 0 !important;
-    }
-
-    .home_section_5_container .col {
-        width: 100%;
-        padding: 0 !important;
-    }
-
-    .home_section_5_container p {
-        font-size: 14px;
-        line-height: 1.6;
-        text-align: justify;
-        margin-bottom: 1.2rem;
-    }
-
-    /* 📍 Principal text block appears first */
-    .home_section_5_imgtxt_container {
-        background-color: #183A62;
-        color: white;
-        margin: 0 auto;
-        width: 100%;
-        order: 1;
-    }
-
-    .home_section_5_imgtxt_container h3 {
-        font-size: 3vw;
-        margin-bottom: 0.5rem;
-    }
-
-    .home_section_5_imgtxt_container h6 {
-        font-size: 2vw;
-        line-height: 1.4;
-    }
-
-    /* 📸 Image appears below text */
-    .home_section_5_img_container {
-        display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .home_section_5_img_container img {
+    .home_section_2 img {
         width: 100%;
         height: auto;
-        margin-top: 1rem;
+        object-fit: cover;
     }
 
+    .home_section_2 p {
+        font-size: 2vw;
+        /* slightly smaller text */
+        line-height: 1.4;
+        text-align: left;
+        padding: 0vh 1vw;
+    }
+
+    .home_section_2 button {
+        font-size: 1.5vw;
+        padding: .2vh 4vw;
+    }
+
+    /* Adjust column widths proportionally */
+    .home_section_2 .col-md-4,
+    .home_section_2 .col-md-5 {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    /* Slightly tighter spacing between items */
+    .home_section_2 .row>* {
+        margin: 0.5vh 0;
+    }
+
+    .home_section_3_container {
+        margin: 0vh 0vw;
+        margin-bottom: 3vh;
+    }
+
+    .home_section_3 {
+        padding: 0vh 2vw;
+    }
+
+    .home_section_3 h2 {
+        font-size: 3.5vw;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+    }
+
+    .home_section_3 p {
+        font-size: 3.5vw;
+        line-height: 1.5;
+    }
+
+    .home_section_3 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .home_section_5 {
+        padding: 0px;
+        /* background-color: #000; */
+    }
+
+    .home_section_5_container {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    .home_section_5_container p {
+        padding-top: 5vh;
+        margin-bottom: 0vh;
+        font-size: 3.5vw;
+        text-align: justify;
+    }
+
+    .home_section_5_cnt2 {
+        padding: 5vh 5vw;
+        margin: 0vh 5vw;
+    }
+
+    .home_section_5_img_container img {
+        width: 100%;
+    }
+
+    .home_section_5_imgtxt_container {
+        font-size: 3.5vw;
+        margin: 0vh 1vw;
+    }
+
+    .home_section_5_imgtxt_container h3 {
+        font-size: 3vw;
+    }
+
+    .home_section_5_imgtxt_container h6 {
+        font-size: 3vw;
+    }
+
+    .home_section_6{
+        margin-bottom: 10vh;
+        /* border-top: 2px solid black; */
+    }
+
+    .home_section_6 [class*="home_section_6_img_cnt"] {
+        border: none;
+    }
+
+    /* Hide all image containers inside section 6 */
+    .home_section_6 [class*="home_section_6_img_cnt"] img {
+        display: none;
+    }
+
+    /* Stack the text sections vertically */
+    .home_section_6 .row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0rem;
+    }
+
+    /* Style the text cards for readability */
+    .home_section_6_card_text {
+        padding: 1.2rem;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+        text-align: left;
+    }
+
+    .home_section_6_card_text h3 {
+        font-size: 4.2vw;
+        color: #183A62;
+        margin-bottom: 0.6rem;
+    }
+
+    .home_section_6_card_text p {
+        font-size: 3.5vw;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    /* Center the View More link */
+    .home_section_6_viewmore {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: 3vh;
+        padding:  0;
+    }
+
+    .home_section_6_viewmore a {
+        font-size: 4vw;
+        font-weight: 600;
+        color: #183A62;
+    }
+
+    .home_section_6_viewmore i {
+        transform: rotate(-45deg);
+        margin-left: 5px;
+    }
 }

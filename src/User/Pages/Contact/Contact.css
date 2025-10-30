@@ -17,3 +17,77 @@
     border: 2px solid #112237;
     color: #112237;
 }
+
+/* --- MOBILE RESPONSIVE VIEW --- */
+@media (max-width: 768px) {
+  .contact_section1 {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .contact_section1 h1 {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .contact_section2 {
+    margin: 40px 0;
+    padding: 0 20px;
+  }
+
+  .contact_section2 .row {
+    flex-direction: column;
+  }
+
+  .contact_section2 .col {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .contact_section2 h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .contact_section2 h5 {
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .contact_section2 p {
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    word-break: break-word;
+  }
+
+  .contact_section2 i {
+    color: #112237!important;
+  }
+
+  .contact_section2 .icon_bg {
+    background-color: rgb(209, 209, 209);
+    padding: 5px !important;
+  }
+
+  form {
+    padding: 20px !important;
+    box-shadow: none !important;
+  }
+
+  form .form-label {
+    font-size: 11px;
+  }
+
+  form .form-control-lg {
+    font-size: 11px;
+    padding: 0px 1px;
+  }
+
+  .submit_btn {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+}

@@ -20,13 +20,22 @@
   text-align: center;
 }
 
+
 @media (max-width: 768px) {
   .hero-banner-box {
-    height: 300px;
+    top: 60px;
+    height: 180px;
     width: 95%;
-    margin: 20px auto;
+    margin: 70px auto;
+    padding: 0 15px;
+    border-radius: 15px;
   }
+
   .hero-banner-title {
-    font-size: 2.5em;
+    font-size: 1.8em;
+    line-height: 1.3;
+    text-align: center;
+    padding: 0 10px;
+    word-wrap: break-word;
   }
 }

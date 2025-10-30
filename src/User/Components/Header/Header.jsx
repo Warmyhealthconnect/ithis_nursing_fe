@@ -38,9 +38,9 @@ function Header() {
         <details  onClick={(e) => e.stopPropagation()}>
           <summary>Academics<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
-            <Link to="/academics/ug">Undergraduate</Link>
+            {/* <Link to="/academics/ug">Undergraduate</Link>
             <Link to="/academics/pg">Postgraduate</Link>
-            <Link to="/academics/research">Research</Link>
+            <Link to="/academics/research">Research</Link> */}
           </div>
         </details>
 
@@ -48,9 +48,9 @@ function Header() {
         <details  onClick={(e) => e.stopPropagation()}>
           <summary>Departments<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
-            <Link to="/departments">Computer Science</Link>
+            {/* <Link to="/departments">Computer Science</Link>
             <Link to="/departments">Electrical</Link>
-            <Link to="/departments">Mechanical</Link>
+            <Link to="/departments">Mechanical</Link> */}
           </div>
         </details>
 
@@ -68,8 +68,10 @@ function Header() {
         <details  onClick={(e) => e.stopPropagation()}>
           <summary>Annexure <span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
-            <Link to="/annexure/a">Annexure A</Link>
-            <Link to="/annexure/b">Annexure B</Link>
+            <Link to="/annexure/a">Annexure-x</Link>
+            <Link to="/annexure/b">Annexure-x1</Link>
+            <Link to="/annexure/b">Anti-Ragging Undrtaking - Parent</Link>
+            <Link to="/annexure/b">Anti-Ragging Undrtaking - Student</Link>
           </div>
         </details>
 
@@ -87,7 +89,7 @@ function Header() {
 
         {/* Footer */}
         <div className="mobile-menu-footer">
-          © 2025 Your Institute Name. All rights reserved.
+          © 2025 ithis college of nursing. All rights reserved.
         </div>
       </nav>
     </header>

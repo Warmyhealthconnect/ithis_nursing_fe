@@ -24,7 +24,11 @@ function Home() {
       </section>
 
       <section className='broadcast-section'>
-        <p className='broadcast-text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non dolorum ipsum, asperiores enim quia voluptas veniam, deleniti perferendis perspiciatis facilis natus distinctio doloribus aperiam quibusdam mollitia quis beatae debitis animi!</p>
+        <div className="broadcast-wrapper">
+          <div className="broadcast-text">
+            <span>Latest News: Innovation never stops at iThis — stay tuned for more updates! </span>
+          </div>
+        </div>
       </section>
 
       <section className="home_section_1">
@@ -36,8 +40,8 @@ function Home() {
       </section>
 
       <section className="home_section_2">
-        <div className="row d-flex justify-content-between align-items-center mx-0 px-5 flex-wrap">
-          <div className="col-md-5 col-12 mb-4">
+        <div className="row d-flex justify-content-center align-items-center mx-0 px-md-5">
+          <div className="col-md-5 col mb-4">
             <div className="home_section_2_img_container">
               <img src="/HomeImages/image 2.png" className="img-fluid" alt="" />
             </div>
@@ -47,7 +51,7 @@ function Home() {
             <button className="btn btn-primary">Know More</button>
           </div>
 
-          <div className="col-md-4 col-12 d-flex flex-column justify-content-end">
+          <div className="col-md-4 col d-flex flex-column justify-content-end">
             <div className="home_section_2_img_container2">
               <img src="/HomeImages/image 3.png" className="img-fluid" alt="" />
             </div>
@@ -78,7 +82,7 @@ function Home() {
       </section>
 
       <section className='home_section_5'>
-        <div className='row px-5 home_section_5_container container-fluid' >
+        <div className='row px-md-5 home_section_5_container container-fluid' >
           <div className="col px-4">
             <p>It is with immense pride and joy that I welcome you to IET College of Nursing, Malappuram a center of excellence committed to shaping the
               future guardians of health and healing. Nursing is not just a career; it is a calling of compassion and courage, where knowledge meets kindness
@@ -91,8 +95,8 @@ function Home() {
               and every heartbeat echoes with care.
             </p>
           </div>
-          <div className="col-md-5">
-            <div className="row d-flex flex-column">
+          <div className="col-md-5 ">
+            <div className="row d-flex flex-column home_section_5_cnt2">
               <div className="col p-0 home_section_5_img_container">
                 <img src="/HomeImages/principal 1.png" className='img-fluid' alt="" />
               </div>
@@ -157,7 +161,7 @@ function Home() {
           </div>
           <div className='col-sm-3 home_section_6_img_cnt8'>
             <div className="px-0 home_section_6_viewmore">
-              <a href="/facilities">View More</a>
+              <a href="/facilities">View More<i class="fa-solid fa-sm fa-arrow-down"></i></a>
             </div>
           </div>
         </div>

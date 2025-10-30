@@ -34,3 +34,48 @@
     color: #646464;
     font-size: 20px;
 }
+
+/* --- MOBILE RESPONSIVE VIEW --- */
+@media (max-width: 768px) {
+  .career-details-container {
+    padding: 20px;
+  }
+
+  .heading-div {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .heading-div h1 {
+    font-size: 24px;
+  }
+
+  .job-details-container {
+    padding: 20px;
+    margin-top: 25px;
+  }
+
+  .job-details {
+    margin-bottom: 40px;
+  }
+
+  .job-details h1 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .job-details p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .job-description h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .job-description p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
