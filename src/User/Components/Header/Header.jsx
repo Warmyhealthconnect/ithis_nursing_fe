@@ -45,14 +45,14 @@ function Header() {
         </details>
 
         {/* Departments Dropdown */}
-        <details  onClick={(e) => e.stopPropagation()}>
+        {/* <details  onClick={(e) => e.stopPropagation()}>
           <summary>Departments<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
-          <div className="dropdown-links">
+          <div className="dropdown-links"> */}
             {/* <Link to="/departments">Computer Science</Link>
             <Link to="/departments">Electrical</Link>
             <Link to="/departments">Mechanical</Link> */}
-          </div>
-        </details>
+          {/* </div>
+        </details> */}
 
         {/* Admission Dropdown */}
         <details  onClick={(e) => e.stopPropagation()}>
