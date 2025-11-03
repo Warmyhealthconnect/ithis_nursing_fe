@@ -15,7 +15,7 @@ function Header() {
       {/* Right Side Buttons + Hamburger */}
       <div className="header-right">
         <div className="header-buttons">
-          <button className="btn btn-primary">Download Prospectus</button>
+            <a href="" className="btn btn-primary" download={'/ithis.pdf'} style={{textDecoration:"none"}}>Download Prospectus </a>
           <button className="btn btn-secondary">Apply Now</button>
 
           {/* Custom CSS Hamburger */}
