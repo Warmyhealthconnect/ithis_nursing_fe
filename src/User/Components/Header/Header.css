@@ -138,6 +138,14 @@
     /* below header */
 }
 
+.mobile-download{
+    color: white;
+}
+
+.mobile-download:hover{
+    color: #081C34;
+}
+
 .mobile-menu.open {
     transform: translateX(0%);
     opacity: 1;

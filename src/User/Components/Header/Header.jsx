@@ -15,8 +15,16 @@ function Header() {
       {/* Right Side Buttons + Hamburger */}
       <div className="header-right">
         <div className="header-buttons">
-            <a href="" className="btn btn-primary" download={'/ithis.pdf'} style={{textDecoration:"none"}}>Download Prospectus </a>
-            <a target="blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfesnF_BQv5z0pYhnmbxys_vHWPgcDVeibmMxGOksbs588pNw/viewform" className="btn btn-secondary">Apply Now</a>
+          <a
+            href="/ithis.pdf"
+            download
+            className="btn btn-primary"
+            style={{ textDecoration: "none" }}
+          >
+            Download Prospectus
+          </a>
+
+          <a target="blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfesnF_BQv5z0pYhnmbxys_vHWPgcDVeibmMxGOksbs588pNw/viewform" className="btn btn-secondary">Apply Now</a>
 
           {/* Custom CSS Hamburger */}
           <div
@@ -30,12 +38,12 @@ function Header() {
       </div>
 
       {/* Slide-down Menu */}
-      <nav className={`mobile-menu ${menuOpen ? "open" : ""}`} onClick={()=>setMenuOpen(!menuOpen)}>
+      <nav className={`mobile-menu ${menuOpen ? "open" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
 
         {/* Academics Dropdown */}
-        <details  onClick={(e) => e.stopPropagation()}>
+        <details onClick={(e) => e.stopPropagation()}>
           <summary>Academics<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             {/* <Link to="/academics/ug">Undergraduate</Link>
@@ -48,14 +56,14 @@ function Header() {
         {/* <details  onClick={(e) => e.stopPropagation()}>
           <summary>Departments<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links"> */}
-            {/* <Link to="/departments">Computer Science</Link>
+        {/* <Link to="/departments">Computer Science</Link>
             <Link to="/departments">Electrical</Link>
             <Link to="/departments">Mechanical</Link> */}
-          {/* </div>
+        {/* </div>
         </details> */}
 
         {/* Admission Dropdown */}
-        <details  onClick={(e) => e.stopPropagation()}>
+        <details onClick={(e) => e.stopPropagation()}>
           <summary>Admission<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             <Link to="/admission">Criteria</Link>
@@ -65,7 +73,7 @@ function Header() {
         </details>
 
         {/* Annexure Dropdown */}
-        <details  onClick={(e) => e.stopPropagation()}>
+        <details onClick={(e) => e.stopPropagation()}>
           <summary>Annexure <span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             <Link to="/annexure/a">Annexure-x</Link>
@@ -84,7 +92,9 @@ function Header() {
 
         {/* Show this only in mobile view */}
         <button className="btn btn-primary mobile-prospectus-btn">
-          Download Prospectus
+          <a href='/ithis.pdf' download>
+            <span className="mobile-download">Download Prospectus</span>
+          </a>
         </button>
 
         {/* Footer */}
