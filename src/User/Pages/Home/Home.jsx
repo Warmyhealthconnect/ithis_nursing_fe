@@ -34,7 +34,7 @@ function Home() {
       <section className="home_section_1">
         <div className="home_section_1_container">
           <h2>About Us</h2>
-          <p>Let College of Nursing prepares skilled, compassionate nurses with strong ethics and a commitment to excellence in healthcare, nurturing discipline,
+          <p>IET College of Nursing prepares skilled, compassionate nurses with strong ethics and a commitment to excellence in healthcare, nurturing discipline,
             integrity, and responsibility for the evolving medical world.</p>
         </div>
       </section>
