@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom';
 import "./Home.css"
 
 function Home() {
@@ -161,7 +162,7 @@ function Home() {
           </div>
           <div className='col-sm-3 home_section_6_img_cnt8'>
             <div className="px-0 home_section_6_viewmore">
-              <a href="/facilities">View More<i class="fa-solid fa-sm fa-arrow-down"></i></a>
+              <Link to={'/facilities'}>View More<i class="fa-solid fa-sm fa-arrow-down"></i></Link>
             </div>
           </div>
         </div>
