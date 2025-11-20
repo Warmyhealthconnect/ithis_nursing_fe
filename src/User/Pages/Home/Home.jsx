@@ -15,7 +15,7 @@ function Home() {
   return (
     <>
       <section className='banner'>
-        <video ref={videoRef} loop muted playsInline className="banner-video">
+        <video ref={videoRef} loop muted autoPlay playsInline className="banner-video">
           <source src="/videos/ithis.webm" type="video/webm" />
         </video>
         <div className="banner-text">
