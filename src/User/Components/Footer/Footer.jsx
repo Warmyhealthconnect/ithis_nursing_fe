@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import './Footer.css'
 import { Link, useNavigate } from 'react-router-dom'
-
+import AdminLoginModal from '../../../Admin/Components/AdminLogin/AdminLoginModal'
 
 function Footer() {
- 
+  const [showModal, setShowModal] = useState(false);
+
+
   return (
     <>
       <div className='footer_container'>
@@ -30,7 +32,7 @@ function Footer() {
               <li><Link className='text-decoration-none text-light' to="/admission">Admission</Link></li>
               <li><Link className='text-decoration-none text-light' to="/career">Career</Link></li>
               <li><Link className='text-decoration-none text-light' to="/contact">Contact</Link></li>
-              <li style={{ cursor: "pointer" }}>Admin Login</li>
+              <li onClick={() => setShowModal(true)} style={{ cursor: "pointer" }}>Admin Login</li>
             </ul>
           </div>
           <div className="col d-flex justify-content-center">
@@ -50,6 +52,9 @@ function Footer() {
         <div className=''>Copyright &copy;2025 Ithis medicity. All rights reserved</div>
         <div className=' '>Designed by Warmy health connect</div>
       </div>
+
+      <AdminLoginModal show={showModal} onClose={() => setShowModal(false)} />
+
 
       {/* Modal Component */}
     </>

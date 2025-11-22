@@ -13,13 +13,18 @@ import Carrerdetails from './User/Pages/CareerDetails/CareerDetails'
 import Department from './User/Pages/Department/Department'
 import Facilities from './User/Pages/Facilities/Facilities'
 import Admission from './User/Pages/Admission/Admission'
+import AdminDash from './Admin/Components/AdminDash/AdminDash'
+import PayUCheckout from './User/Components/PayUCheckout'
+import StudentDetails from './Admin/Components/StudentDetails/StudentDetails'
+import { ToastContainer } from 'react-bootstrap'
+import ProtectedRoute from './Admin/Components/ProtectedRoute'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Header/>
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -31,8 +36,21 @@ function App() {
         <Route path='/departments' element={<Department />} />
         <Route path='/facilities' element={<Facilities />} />
         <Route path='/admission' element={<Admission />} />
+        <Route path='/payu' element={<PayUCheckout />} />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDash />
+            </ProtectedRoute>
+          }
+        />
+        <Route path='/admin/studentdetails/:id' element={<StudentDetails />} />
       </Routes>
-      <Footer/>
+      <ToastContainer />
+
+      <Footer />
     </>
   )
 }
