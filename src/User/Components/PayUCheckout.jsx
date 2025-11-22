@@ -17,17 +17,16 @@ function PayUCheckout() {
     });
 
     useEffect(() => {
-        if (studentName && applicationNumber) {
-            setForm((prev) => ({
-                ...prev,
-                firstname: studentName,
-                email: email || prev.email,
-                phone: phone || prev.phone,
-                studentName: studentName,          // correct key
-                applicationNumber: applicationNumber, // correct key
-            }));
-        }
-    }, [studentName, applicationNumber]);
+        setForm((prev) => ({
+            ...prev,
+            firstname: studentName || "",
+            email: email || "",
+            phone: phone || "",
+            studentName: studentName || "",
+            applicationNumber: applicationNumber || "",
+        }));
+    }, [studentName, applicationNumber, email, phone]);
+
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });

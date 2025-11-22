@@ -1,3 +1,3 @@
-const base_url="https://d99379b0f2fc.ngrok-free.app"
+const base_url="https://ithis-nursing-be.onrender.com"
 
 export default base_url

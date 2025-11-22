@@ -53,7 +53,9 @@ function Admission() {
       nav('/payu', {
         state: {
           applicationNumber: res?.data?.applicationNumber,
-          studentName: res?.data?.studentName
+          studentName: res?.data?.studentName,
+          email: details.basicDetails.email,
+          phone: details.basicDetails.mobile
         }
       });
     } catch (error) {
