@@ -272,7 +272,7 @@ function Admission() {
               {/* Passport Photo */}
               <div className="row-inputs">
                 <label className="full-width">
-                  Upload Passport Size Photo
+                  Upload Passport Size Photo (Only JPEG, PNG, or PDF files under 20mb are allowed)
                   <input type="file" name="studentphoto" required onChange={(e) => setDetails({ ...details, basicDetails: { ...details.basicDetails, studentphoto: e.target.files[0] } })} />
                 </label>
               </div>
@@ -415,7 +415,7 @@ function Admission() {
 
               {/* ------------------- DOCUMENTS ------------------- */}
 
-              <h3>Required Documents (PDF Only)</h3>
+              <h3>Required Documents (PDF Only & under 20mb)</h3>
 
               <div className="row-inputs">
                 <label className="full-width">

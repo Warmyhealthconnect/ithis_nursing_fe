@@ -13,11 +13,16 @@ function StudentDetails() {
         const fetchStudent = async () => {
             try {
                 const res = await getStudentByIdApi(id);
-                console.log('res:', res.data.basicDetails.applicationNumber)
-                const payresult = await getPaymentsApi(res.data.basicDetails.applicationNumber)
-                console.log('Payresult', payresult)
-                setPaymentdata(payresult.data)
-                setStudent(res.data); // store student data in state
+                setStudent(res.data); // always set student first
+
+                try {
+                    const payresult = await getPaymentsApi(res.data.basicDetails.applicationNumber);
+                    setPaymentdata(payresult.data);
+                } catch (err) {
+                    // if payment not found or error, just set paymentdata null
+                    console.warn("No payment data:", err.response?.data?.message || err.message);
+                    setPaymentdata(null);
+                }
             } catch (err) {
                 console.error("Failed to fetch student:", err);
             }
@@ -25,6 +30,7 @@ function StudentDetails() {
 
         fetchStudent();
     }, [id]);
+
 
     if (!student) return <p>Loading student details...</p>;
 
