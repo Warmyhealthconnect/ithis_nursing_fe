@@ -24,7 +24,7 @@ function Header() {
             Download Prospectus
           </a>
 
-          <Link target="blank" to={'/admission'} className="btn btn-secondary">Apply Now</Link>
+          <Link to={'/admission'} className="btn btn-secondary">Apply Now</Link>
           {/* <Link to={'/payu'}>Pay</Link> */}
 
           {/* Custom CSS Hamburger */}

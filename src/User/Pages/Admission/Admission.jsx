@@ -18,50 +18,97 @@ function Admission() {
   const nav = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const formData = new FormData();
+  const { basicDetails, parentDetails, address, qualificationDetails, documents, declaration } = details;
 
-      // Append files with the field names Multer expects
-      formData.append("studentphoto", details.basicDetails.studentphoto);
-      formData.append("sslcProof", details.documents.sslcProof);
-      formData.append("plusTwoCertificate", details.documents.plusTwoCertificate);
-      formData.append("signatures", details.documents.signatures);
+  // -------------------- Check required fields --------------------
+  if (
+    !basicDetails.name ||
+    !basicDetails.mobile ||
+    !basicDetails.email ||
+    !basicDetails.dob ||
+    !basicDetails.gender ||
+    !basicDetails.aadharNumber ||
+    !basicDetails.religion ||
+    !basicDetails.bloodGroup ||
+    !basicDetails.nationality ||
+    !basicDetails.casteCategory ||
+    !basicDetails.studentphoto ||
+    !parentDetails.parentName ||
+    !parentDetails.relationship ||
+    !parentDetails.guardianMobile ||
+    !parentDetails.parentEmail ||
+    !address.houseName ||
+    !address.street ||
+    !address.district ||
+    !address.state ||
+    !address.pincode ||
+    !address.addressmobile ||
+    !qualificationDetails.institutionAndState ||
+    !qualificationDetails.yearOfPassing ||
+    !qualificationDetails.registerNumber ||
+    !qualificationDetails.marks.chemistry ||
+    !qualificationDetails.marks.physics ||
+    !qualificationDetails.marks.english ||
+    !qualificationDetails.marks.biologyOrEquivalent ||
+    !qualificationDetails.marks.total ||
+    !documents.sslcProof ||
+    !documents.plusTwoCertificate ||
+    !documents.signatures ||
+    !declaration.prospectusAgreement ||
+    !declaration.truthDeclaration
+  ) {
+    alert("Please fill all required fields before submitting!");
+    return; // stop submission
+  }
 
-      // Append other data as JSON string
-      // We send everything except files
-      const nonFileData = {
-        basicDetails: { ...details.basicDetails, studentphoto: undefined },
-        parentDetails: details.parentDetails,
-        address: details.address,
-        qualificationDetails: details.qualificationDetails,
-        documents: {
-          sslcProof: undefined,
-          plusTwoCertificate: undefined,
-          signatures: undefined,
-        },
-        declaration: details.declaration
-      };
+  // -------------------- Submit form --------------------
+  try {
+    const formData = new FormData();
 
-      formData.append("data", JSON.stringify(nonFileData));
+    // Append files
+    formData.append("studentphoto", basicDetails.studentphoto);
+    formData.append("sslcProof", documents.sslcProof);
+    formData.append("plusTwoCertificate", documents.plusTwoCertificate);
+    formData.append("signatures", documents.signatures);
 
-      // Call API
-      const res = await addAdmissionApi(formData);
+    // Append non-file data
+    const nonFileData = {
+      basicDetails: { ...basicDetails, studentphoto: undefined },
+      parentDetails,
+      address,
+      qualificationDetails,
+      documents: { sslcProof: undefined, plusTwoCertificate: undefined, signatures: undefined },
+      declaration
+    };
 
-      console.log("Response:", res);
-      nav('/payu', {
-        state: {
-          applicationNumber: res?.data?.applicationNumber,
-          studentName: res?.data?.studentName,
-          email: details.basicDetails.email,
-          phone: details.basicDetails.mobile
-        }
-      });
-    } catch (error) {
-      console.error("Error submitting admission:", error);
+    formData.append("data", JSON.stringify(nonFileData));
+
+    // Call API
+    const res = await addAdmissionApi(formData);
+
+    // -------------------- Success --------------------
+    alert("Application submitted successfully!");
+    nav('/payu', {
+      state: {
+        applicationNumber: res?.data?.applicationNumber,
+        studentName: res?.data?.studentName,
+        email: basicDetails.email,
+        phone: basicDetails.mobile
+      }
+    });
+  } catch (error) {
+    console.error("Error submitting admission:", error);
+
+    // -------------------- Show server error --------------------
+    if (error.response && error.response.data && error.response.data.message) {
+      alert("Error: " + error.response.data.message);
+    } else {
+      alert("Error submitting application. Please try again.");
     }
-  };
+  }
+};
 
 
 
