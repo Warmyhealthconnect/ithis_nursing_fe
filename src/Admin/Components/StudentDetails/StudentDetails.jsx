@@ -107,7 +107,11 @@ function StudentDetails() {
 
             <section className="section documents">
                 <h2>Documents</h2>
-                <p><a href={documents?.sslcProof} target="_blank" rel="noreferrer">SSLC Proof</a></p>
+                <div><a href={documents?.sslcProof} target="_blank" rel="noreferrer">SSLC Proof
+
+                    <img src={documents?.sslcProof} alt="Student" className="student-photo" />
+
+                </a></div>
                 <p><a href={documents?.plusTwoCertificate} target="_blank" rel="noreferrer">Plus Two Certificate</a></p>
                 <p><a href={documents?.signatures} target="_blank" rel="noreferrer">Signatures</a></p>
             </section>

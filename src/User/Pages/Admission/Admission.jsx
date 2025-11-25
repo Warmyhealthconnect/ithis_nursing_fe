@@ -3,6 +3,8 @@ import './Admission.css';
 import Titlebar from '../../Components/Titlebar/Titlebar';
 import { addAdmissionApi } from '../../../../services/allApis';
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 function Admission() {
 
@@ -11,110 +13,159 @@ function Admission() {
     parentDetails: { parentName: "", relationship: "", guardianMobile: "", parentEmail: "" },
     address: { houseName: "", street: "", landmark: "", district: "", state: "", pincode: "", addressmobile: "" },
     qualificationDetails: { institutionAndState: "", yearOfPassing: "", registerNumber: "", marks: { chemistry: "", physics: "", english: "", biologyOrEquivalent: "", total: "" } },
-    documents: { sslcProof: "", plusTwoCertificate: "", signatures: "" },
+    documents: { sslcProof: "", plusTwoCertificate: "", signatures: "", screenshot: "" },
     declaration: { prospectusAgreement: false, truthDeclaration: false } // <-- added
   });
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
 
   const nav = useNavigate()
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const { basicDetails, parentDetails, address, qualificationDetails, documents, declaration } = details;
+    const { basicDetails, parentDetails, address, qualificationDetails, documents, declaration } = details;
 
-  // -------------------- Check required fields --------------------
-  if (
-    !basicDetails.name ||
-    !basicDetails.mobile ||
-    !basicDetails.email ||
-    !basicDetails.dob ||
-    !basicDetails.gender ||
-    !basicDetails.aadharNumber ||
-    !basicDetails.religion ||
-    !basicDetails.bloodGroup ||
-    !basicDetails.nationality ||
-    !basicDetails.casteCategory ||
-    !basicDetails.studentphoto ||
-    !parentDetails.parentName ||
-    !parentDetails.relationship ||
-    !parentDetails.guardianMobile ||
-    !parentDetails.parentEmail ||
-    !address.houseName ||
-    !address.street ||
-    !address.district ||
-    !address.state ||
-    !address.pincode ||
-    !address.addressmobile ||
-    !qualificationDetails.institutionAndState ||
-    !qualificationDetails.yearOfPassing ||
-    !qualificationDetails.registerNumber ||
-    !qualificationDetails.marks.chemistry ||
-    !qualificationDetails.marks.physics ||
-    !qualificationDetails.marks.english ||
-    !qualificationDetails.marks.biologyOrEquivalent ||
-    !qualificationDetails.marks.total ||
-    !documents.sslcProof ||
-    !documents.plusTwoCertificate ||
-    !documents.signatures ||
-    !declaration.prospectusAgreement ||
-    !declaration.truthDeclaration
-  ) {
-    alert("Please fill all required fields before submitting!");
-    return; // stop submission
-  }
-
-  // -------------------- Submit form --------------------
-  try {
-    const formData = new FormData();
-
-    // Append files
-    formData.append("studentphoto", basicDetails.studentphoto);
-    formData.append("sslcProof", documents.sslcProof);
-    formData.append("plusTwoCertificate", documents.plusTwoCertificate);
-    formData.append("signatures", documents.signatures);
-
-    // Append non-file data
-    const nonFileData = {
-      basicDetails: { ...basicDetails, studentphoto: undefined },
-      parentDetails,
-      address,
-      qualificationDetails,
-      documents: { sslcProof: undefined, plusTwoCertificate: undefined, signatures: undefined },
-      declaration
-    };
-
-    formData.append("data", JSON.stringify(nonFileData));
-
-    // Call API
-    const res = await addAdmissionApi(formData);
-
-    // -------------------- Success --------------------
-    alert("Application submitted successfully!");
-    nav('/payu', {
-      state: {
-        applicationNumber: res?.data?.applicationNumber,
-        studentName: res?.data?.studentName,
-        email: basicDetails.email,
-        phone: basicDetails.mobile
-      }
-    });
-  } catch (error) {
-    console.error("Error submitting admission:", error);
-
-    // -------------------- Show server error --------------------
-    if (error.response && error.response.data && error.response.data.message) {
-      alert("Error: " + error.response.data.message);
-    } else {
-      alert("Error submitting application. Please try again.");
+    // -------------------- Check required fields --------------------
+    if (
+      !basicDetails.name ||
+      !basicDetails.mobile ||
+      !basicDetails.email ||
+      !basicDetails.dob ||
+      !basicDetails.gender ||
+      !basicDetails.aadharNumber ||
+      !basicDetails.religion ||
+      !basicDetails.bloodGroup ||
+      !basicDetails.nationality ||
+      !basicDetails.casteCategory ||
+      !basicDetails.studentphoto ||
+      !parentDetails.parentName ||
+      !parentDetails.relationship ||
+      !parentDetails.guardianMobile ||
+      !parentDetails.parentEmail ||
+      !address.houseName ||
+      !address.street ||
+      !address.district ||
+      !address.state ||
+      !address.pincode ||
+      !address.addressmobile ||
+      !qualificationDetails.institutionAndState ||
+      !qualificationDetails.yearOfPassing ||
+      !qualificationDetails.registerNumber ||
+      !qualificationDetails.marks.chemistry ||
+      !qualificationDetails.marks.physics ||
+      !qualificationDetails.marks.english ||
+      !qualificationDetails.marks.biologyOrEquivalent ||
+      !qualificationDetails.marks.total ||
+      !documents.sslcProof ||
+      !documents.plusTwoCertificate ||
+      !documents.signatures ||
+      !declaration.prospectusAgreement ||
+      !declaration.truthDeclaration
+    ) {
+      alert("Please fill all required fields before submitting!");
+      return; // stop submission
     }
-  }
-};
+
+    // -------------------- Submit form --------------------
+    try {
+      const formData = new FormData();
+
+      // Append files
+      formData.append("studentphoto", basicDetails.studentphoto);
+      formData.append("sslcProof", documents.sslcProof);
+      formData.append("plusTwoCertificate", documents.plusTwoCertificate);
+      formData.append("signatures", documents.signatures);
+      formData.append("screenshot", documents.screenshot);  // <-- ADD THIS
+
+
+      // Append non-file data
+      const nonFileData = {
+        basicDetails: { ...basicDetails, studentphoto: undefined },
+        parentDetails,
+        address,
+        qualificationDetails,
+        documents: { sslcProof: undefined, plusTwoCertificate: undefined, signatures: undefined },
+        declaration
+      };
+
+      formData.append("data", JSON.stringify(nonFileData));
+
+      // Call API
+      const res = await addAdmissionApi(formData);
+
+      // -------------------- Success --------------------
+      alert("Application submitted successfully!");
+      // nav('/payu', {
+      //   state: {
+      //     applicationNumber: res?.data?.applicationNumber,
+      //     studentName: res?.data?.studentName,
+      //     email: basicDetails.email,
+      //     phone: basicDetails.mobile
+      //   }
+      // });
+    } catch (error) {
+      console.error("Error submitting admission:", error);
+
+      // -------------------- Show server error --------------------
+      if (error.response && error.response.data && error.response.data.message) {
+        alert("Error: " + error.response.data.message);
+      } else {
+        alert("Error submitting application. Please try again.");
+      }
+    }
+  };
+
+
+  const downloadQR = () => {
+    const link = document.createElement("a");
+    link.href = "/qr.png";   // your image path
+    link.download = "ithis-qr.png";  // filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
 
 
   return (
     <>
       <Titlebar title={'Admission'} />
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Payment RS 1200 admission fee (If you already paid upload the screenshot)</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <img src="/qr.png" alt="QR" className="img-fluid" />
+          <label htmlFor="" className='mb-3'>Upload payment screenshot</label>
+          <input type="file" accept="image/*" placeholder='Upload payment screenshot' className='form-control w-100' onChange={(e) => setDetails({ ...details, documents: { ...details.documents, screenshot: e.target.files[0] } })} />
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+
+          <Button variant="primary" onClick={handleSubmit}>Upload</Button>
+
+          <Button variant="primary" onClick={downloadQR}>
+            Download QR
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
 
       <div className="row mx-auto px-4 my-5 admission-section">
 
@@ -246,9 +297,13 @@ function Admission() {
                   <select name="bloodGroup" required onChange={(e) => setDetails({ ...details, basicDetails: { ...details.basicDetails, bloodGroup: e.target.value } })}>
                     <option value=""></option>
                     <option value="A+">A+</option>
+                    <option value="A-">A-</option>
                     <option value="B+">B+</option>
+                    <option value="B-">B-</option>
                     <option value="O+">O+</option>
+                    <option value="O-">O-</option>
                     <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
                   </select>
                 </label>
 
@@ -273,7 +328,7 @@ function Admission() {
               <div className="row-inputs">
                 <label className="full-width">
                   Upload Passport Size Photo (Only JPEG, PNG, or PDF files under 20mb are allowed)
-                  <input type="file" name="studentphoto" required onChange={(e) => setDetails({ ...details, basicDetails: { ...details.basicDetails, studentphoto: e.target.files[0] } })} />
+                  <input type="file" name="studentphoto" accept="image/*" required onChange={(e) => setDetails({ ...details, basicDetails: { ...details.basicDetails, studentphoto: e.target.files[0] } })} />
                 </label>
               </div>
 
@@ -420,21 +475,21 @@ function Admission() {
               <div className="row-inputs">
                 <label className="full-width">
                   SSLC / Age Proof (PDF)
-                  <input type="file" accept=".pdf" name="sslcProof" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, sslcProof: e.target.files[0] } })} />
+                  <input type="file" accept="image/*" name="sslcProof" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, sslcProof: e.target.files[0] } })} />
                 </label>
               </div>
 
               <div className="row-inputs">
                 <label className="full-width">
                   Plus Two Certificate (PDF)
-                  <input type="file" accept=".pdf" name="plusTwoCertificate" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, plusTwoCertificate: e.target.files[0] } })} />
+                  <input type="file" accept="image/*" name="plusTwoCertificate" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, plusTwoCertificate: e.target.files[0] } })} />
                 </label>
               </div>
 
               <div className="row-inputs">
                 <label className="full-width">
                   Signature (PDF)
-                  <input type="file" accept=".pdf" name="signatures" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, signatures: e.target.files[0] } })} />
+                  <input type="file" accept="image/*" name="signatures" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, signatures: e.target.files[0] } })} />
                 </label>
               </div>
 
@@ -487,7 +542,10 @@ function Admission() {
 
             {/* Submit Button */}
             <div className="form-button">
-              <button type="submit" className="btn btn-light" onClick={(e) => handleSubmit(e)}>
+              {/* <button type="submit" className="btn btn-light" onClick={(e) => handleSubmit(e)}>
+                Submit Application
+              </button> */}
+              <button type="submit" className="btn btn-light" onClick={handleShow}>
                 Submit Application
               </button>
             </div>
