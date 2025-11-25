@@ -327,7 +327,7 @@ function Admission() {
               {/* Passport Photo */}
               <div className="row-inputs">
                 <label className="full-width">
-                  Upload Passport Size Photo (Only JPEG, PNG, or PDF files under 20mb are allowed)
+                  Upload Passport Size Photo (Only JPEG, PNG files under 20mb are allowed)
                   <input type="file" name="studentphoto" accept="image/*" required onChange={(e) => setDetails({ ...details, basicDetails: { ...details.basicDetails, studentphoto: e.target.files[0] } })} />
                 </label>
               </div>
@@ -470,25 +470,25 @@ function Admission() {
 
               {/* ------------------- DOCUMENTS ------------------- */}
 
-              <h3>Required Documents (PDF Only & under 20mb)</h3>
+              <h3>Required Documents (photo Only & under 20mb)</h3>
 
               <div className="row-inputs">
                 <label className="full-width">
-                  SSLC / Age Proof (PDF)
+                  SSLC / Age Proof (photo)
                   <input type="file" accept="image/*" name="sslcProof" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, sslcProof: e.target.files[0] } })} />
                 </label>
               </div>
 
               <div className="row-inputs">
                 <label className="full-width">
-                  Plus Two Certificate (PDF)
+                  Plus Two Certificate (photo)
                   <input type="file" accept="image/*" name="plusTwoCertificate" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, plusTwoCertificate: e.target.files[0] } })} />
                 </label>
               </div>
 
               <div className="row-inputs">
                 <label className="full-width">
-                  Signature (PDF)
+                  Signature (photo)
                   <input type="file" accept="image/*" name="signatures" required onChange={(e) => setDetails({ ...details, documents: { ...details.documents, signatures: e.target.files[0] } })} />
                 </label>
               </div>

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import './StudentDetails.css';
 import { useParams } from 'react-router-dom';
-import { getStudentByIdApi } from '../../../../services/allApis';
-import { getPaymentsApi } from '../../../../services/allApis';
+import { getStudentByIdApi, getPaymentsApi } from '../../../../services/allApis';
+import html2pdf from 'html2pdf.js';  // <-- import here
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 
 function StudentDetails() {
-    const { id } = useParams(); // get the student ID from URL
+    const { id } = useParams();
     const [student, setStudent] = useState(null);
-    const [paymentdata, setPaymentdata] = useState(null)
+    const [paymentdata, setPaymentdata] = useState(null);
 
     useEffect(() => {
         const fetchStudent = async () => {
             try {
                 const res = await getStudentByIdApi(id);
-                setStudent(res.data); // always set student first
-
+                setStudent(res.data);
                 try {
                     const payresult = await getPaymentsApi(res.data.basicDetails.applicationNumber);
                     setPaymentdata(payresult.data);
                 } catch (err) {
-                    // if payment not found or error, just set paymentdata null
                     console.warn("No payment data:", err.response?.data?.message || err.message);
                     setPaymentdata(null);
                 }
@@ -27,12 +27,64 @@ function StudentDetails() {
                 console.error("Failed to fetch student:", err);
             }
         };
-
         fetchStudent();
     }, [id]);
 
-
     if (!student) return <p>Loading student details...</p>;
+
+    const downloadExcel = () => {
+        if (!student) return;
+
+        // Flatten your data into an object
+        const data = {
+            Name: student.basicDetails.name,
+            ApplicationNumber: student.basicDetails.applicationNumber,
+            DOB: new Date(student.basicDetails.dob).toLocaleDateString(),
+            Gender: student.basicDetails.gender,
+            BloodGroup: student.basicDetails.bloodGroup,
+            Mobile: student.basicDetails.mobile,
+            Email: student.basicDetails.email,
+            Nationality: student.basicDetails.nationality,
+            Religion: student.basicDetails.religion,
+            CasteCategory: student.basicDetails.casteCategory,
+            Aadhar: student.basicDetails.aadharNumber,
+
+            ParentName: student.parentDetails.parentName,
+            ParentRelationship: student.parentDetails.relationship,
+            ParentMobile: student.parentDetails.guardianMobile,
+            ParentEmail: student.parentDetails.parentEmail,
+
+            AddressHouse: student.address.houseName,
+            Street: student.address.street,
+            Landmark: student.address.landmark,
+            District: student.address.district,
+            State: student.address.state,
+            Pincode: student.address.pincode,
+            AddressMobile: student.address.addressmobile,
+
+            Institution: student.qualificationDetails.institutionAndState,
+            YearOfPassing: student.qualificationDetails.yearOfPassing,
+            RegisterNumber: student.qualificationDetails.registerNumber,
+            MarksPhysics: student.qualificationDetails.marks?.physics,
+            MarksChemistry: student.qualificationDetails.marks?.chemistry,
+            MarksBiology: student.qualificationDetails.marks?.biologyOrEquivalent,
+            MarksEnglish: student.qualificationDetails.marks?.english,
+            MarksTotal: student.qualificationDetails.marks?.total,
+
+            ProspectusAgreed: student.declaration?.prospectusAgreement ? "Yes" : "No",
+            TruthDeclaration: student.declaration?.truthDeclaration ? "Yes" : "No",
+
+            CreatedAt: new Date(student.createdAt).toLocaleString(),
+            UpdatedAt: new Date(student.updatedAt).toLocaleString()
+        };
+
+        const ws = XLSX.utils.json_to_sheet([data]);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Student Details");
+
+        XLSX.writeFile(wb, `${student.basicDetails.name}_${student.basicDetails.applicationNumber}.xlsx`);
+    };
+
 
     const {
         basicDetails,
@@ -41,7 +93,6 @@ function StudentDetails() {
         qualificationDetails,
         documents,
         declaration,
-        payment,
         createdAt,
         updatedAt
     } = student;
@@ -49,81 +100,98 @@ function StudentDetails() {
     return (
         <div className="student-details-container">
             <h1>Student Details</h1>
-
-            <section className="section basic-details">
-                <h2>Basic Details</h2>
-                <div className="flex-row">
-                    <a href={basicDetails.studentphoto} target="_blank" rel="noreferrer">
-                        <img src={basicDetails.studentphoto} alt="Student" className="student-photo" />
-                    </a>                    <div className="details-list">
-                        <p><strong>Name:</strong> {basicDetails?.name}</p>
-                        <p><strong>Application No:</strong> {basicDetails?.applicationNumber}</p>
-                        <p><strong>DOB:</strong> {new Date(basicDetails?.dob).toLocaleDateString()}</p>
-                        <p><strong>Gender:</strong> {basicDetails?.gender}</p>
-                        <p><strong>Blood Group:</strong> {basicDetails?.bloodGroup}</p>
-                        <p><strong>Mobile:</strong> {basicDetails?.mobile}</p>
-                        <p><strong>Email:</strong> {basicDetails?.email}</p>
-                        <p><strong>Nationality:</strong> {basicDetails?.nationality}</p>
-                        <p><strong>Religion:</strong> {basicDetails?.religion}</p>
-                        <p><strong>Caste Category:</strong> {basicDetails?.casteCategory}</p>
-                        <p><strong>Aadhar:</strong> {basicDetails?.aadharNumber}</p>
+            <button className="download-btn" onClick={downloadExcel}>
+                Download as Excel
+            </button>            <div id="student-details-content">
+                <section className="section basic-details">
+                    <h2>Basic Details</h2>
+                    <div className="flex-row">
+                        <a href={basicDetails.studentphoto} target="_blank" rel="noreferrer">
+                            <img src={basicDetails.studentphoto} alt="Student" className="student-photo" />
+                        </a>                    <div className="details-list">
+                            <p><strong>Name:</strong> {basicDetails?.name}</p>
+                            <p><strong>Application No:</strong> {basicDetails?.applicationNumber}</p>
+                            <p><strong>DOB:</strong> {new Date(basicDetails?.dob).toLocaleDateString()}</p>
+                            <p><strong>Gender:</strong> {basicDetails?.gender}</p>
+                            <p><strong>Blood Group:</strong> {basicDetails?.bloodGroup}</p>
+                            <p><strong>Mobile:</strong> {basicDetails?.mobile}</p>
+                            <p><strong>Email:</strong> {basicDetails?.email}</p>
+                            <p><strong>Nationality:</strong> {basicDetails?.nationality}</p>
+                            <p><strong>Religion:</strong> {basicDetails?.religion}</p>
+                            <p><strong>Caste Category:</strong> {basicDetails?.casteCategory}</p>
+                            <p><strong>Aadhar:</strong> {basicDetails?.aadharNumber}</p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section className="section parent-details">
-                <h2>Parent / Guardian Details</h2>
-                <p><strong>Name:</strong> {parentDetails?.parentName}</p>
-                <p><strong>Relationship:</strong> {parentDetails?.relationship}</p>
-                <p><strong>Mobile:</strong> {parentDetails?.guardianMobile}</p>
-                <p><strong>Email:</strong> {parentDetails?.parentEmail}</p>
-            </section>
+                <section className="section parent-details">
+                    <h2>Parent / Guardian Details</h2>
+                    <p><strong>Name:</strong> {parentDetails?.parentName}</p>
+                    <p><strong>Relationship:</strong> {parentDetails?.relationship}</p>
+                    <p><strong>Mobile:</strong> {parentDetails?.guardianMobile}</p>
+                    <p><strong>Email:</strong> {parentDetails?.parentEmail}</p>
+                </section>
 
-            <section className="section address">
-                <h2>Address</h2>
-                <p><strong>House Name:</strong> {address?.houseName}</p>
-                <p><strong>Street:</strong> {address?.street}</p>
-                <p><strong>Landmark:</strong> {address?.landmark}</p>
-                <p><strong>District:</strong> {address?.district}</p>
-                <p><strong>State:</strong> {address?.state}</p>
-                <p><strong>Pincode:</strong> {address?.pincode}</p>
-                <p><strong>Mobile:</strong> {address?.addressmobile}</p>
-            </section>
+                <section className="section address">
+                    <h2>Address</h2>
+                    <p><strong>House Name:</strong> {address?.houseName}</p>
+                    <p><strong>Street:</strong> {address?.street}</p>
+                    <p><strong>Landmark:</strong> {address?.landmark}</p>
+                    <p><strong>District:</strong> {address?.district}</p>
+                    <p><strong>State:</strong> {address?.state}</p>
+                    <p><strong>Pincode:</strong> {address?.pincode}</p>
+                    <p><strong>Mobile:</strong> {address?.addressmobile}</p>
+                </section>
 
-            <section className="section qualification-details">
-                <h2>Qualification Details</h2>
-                <p><strong>Institution & State:</strong> {qualificationDetails?.institutionAndState}</p>
-                <p><strong>Year of Passing:</strong> {qualificationDetails?.yearOfPassing}</p>
-                <p><strong>Register No:</strong> {qualificationDetails?.registerNumber}</p>
-                <div className="marks">
-                    <h3>Marks</h3>
-                    <p>Physics: {qualificationDetails.marks?.physics}</p>
-                    <p>Chemistry: {qualificationDetails.marks?.chemistry}</p>
-                    <p>Biology/Equivalent: {qualificationDetails.marks?.biologyOrEquivalent}</p>
-                    <p>English: {qualificationDetails.marks?.english}</p>
-                    <p>Total: {qualificationDetails.marks?.total}</p>
-                </div>
-            </section>
+                <section className="section qualification-details">
+                    <h2>Qualification Details</h2>
+                    <p><strong>Institution & State:</strong> {qualificationDetails?.institutionAndState}</p>
+                    <p><strong>Year of Passing:</strong> {qualificationDetails?.yearOfPassing}</p>
+                    <p><strong>Register No:</strong> {qualificationDetails?.registerNumber}</p>
+                    <div className="marks">
+                        <h3>Marks</h3>
+                        <p>Physics: {qualificationDetails.marks?.physics}</p>
+                        <p>Chemistry: {qualificationDetails.marks?.chemistry}</p>
+                        <p>Biology/Equivalent: {qualificationDetails.marks?.biologyOrEquivalent}</p>
+                        <p>English: {qualificationDetails.marks?.english}</p>
+                        <p>Total: {qualificationDetails.marks?.total}</p>
+                    </div>
+                </section>
 
-            <section className="section documents">
-                <h2>Documents</h2>
-                <div><a href={documents?.sslcProof} target="_blank" rel="noreferrer">SSLC Proof
+                <section className="section documents">
+                    <h2>Documents</h2>
+                    <div><a href={documents?.sslcProof} target="_blank" rel="noreferrer">SSLC Proof
 
-                    <img src={documents?.sslcProof} alt="Student" className="student-photo" />
+                        <img src={documents?.sslcProof} alt="Student" className="student-photo" />
 
-                </a></div>
-                <p><a href={documents?.plusTwoCertificate} target="_blank" rel="noreferrer">Plus Two Certificate</a></p>
-                <p><a href={documents?.signatures} target="_blank" rel="noreferrer">Signatures</a></p>
-            </section>
+                    </a></div>
+                    <div><a href={documents?.plusTwoCertificate} target="_blank" rel="noreferrer">Plus two certificate
 
-            <section className="section declaration">
-                <h2>Declaration</h2>
-                <p><strong>Prospectus Agreement:</strong> {declaration?.prospectusAgreement ? "Agreed" : "Not Agreed"}</p>
-                <p><strong>Truth Declaration:</strong> {declaration?.truthDeclaration ? "Agreed" : "Not Agreed"}</p>
+                        <img src={documents?.plusTwoCertificate} alt="Student" className="student-photo" />
 
-            </section>
+                    </a></div>
+                    <div><a href={documents?.signatures} target="_blank" rel="noreferrer">signature
 
-            <section className="section payment">
+                        <img src={documents?.signatures} alt="Student" className="student-photo" />
+
+                    </a></div>
+                    <div><a href={documents?.screenshot} target="_blank" rel="noreferrer">Payment screenshot
+
+                        <img src={documents?.signatures} alt="Student" className="student-photo" />
+
+                    </a></div>
+                    {/* <p><a href={documents?.plusTwoCertificate} target="_blank" rel="noreferrer">Plus Two Certificate</a></p> */}
+                    {/* <p><a href={documents?.signatures} target="_blank" rel="noreferrer">Signatures</a></p> */}
+                </section>
+
+                <section className="section declaration">
+                    <h2>Declaration</h2>
+                    <p><strong>Prospectus Agreement:</strong> {declaration?.prospectusAgreement ? "Agreed" : "Not Agreed"}</p>
+                    <p><strong>Truth Declaration:</strong> {declaration?.truthDeclaration ? "Agreed" : "Not Agreed"}</p>
+
+                </section>
+
+                {/* <section className="section payment">
                 <h2>Payment Details </h2>
 
                 {!paymentdata ? (
@@ -138,14 +206,15 @@ function StudentDetails() {
                         <p><strong>Application Number:</strong> {paymentdata?.applicationNumber}</p>
                     </>
                 )}
-            </section>
+            </section> */}
 
 
-            <section className="section timestamps">
-                <h2>Record Timestamps</h2>
-                <p><strong>Created At:</strong> {new Date(createdAt).toLocaleString()}</p>
-                <p><strong>Updated At:</strong> {new Date(updatedAt).toLocaleString()}</p>
-            </section>
+                <section className="section timestamps">
+                    <h2>Record Timestamps</h2>
+                    <p><strong>Created At:</strong> {new Date(createdAt).toLocaleString()}</p>
+                    <p><strong>Updated At:</strong> {new Date(updatedAt).toLocaleString()}</p>
+                </section>
+            </div>
         </div>
     );
 }
