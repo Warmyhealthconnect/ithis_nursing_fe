@@ -8,6 +8,11 @@
 
 .footer_container hr {
   margin-top: 3%;
+  color: white;
+}
+
+.footer_container p {
+  font-size: 1.7vw;
   margin-bottom: 8%;
   color: white;
 }
@@ -21,6 +26,78 @@
   background-color: #112237;
   color: rgb(156, 156, 156);
 }
+
+ .footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; /* spacing between columns */
+}
+
+.footer-links .col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.circular-img {
+  width: 100px;       /* fixed size for uniform circles */
+  height: 100px;
+  border-radius: 50%; /* makes the background circular */
+  background-color: #f0f0f0; /* circular background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;      /* space around the logo */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* optional shadow */
+  overflow: hidden;   /* ensures image doesn’t overflow circle */
+}
+
+.circular-img img {
+  width: 100%;        /* fits logo inside circle */
+  height: auto;
+}
+
+
+.footer-links h5 {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+
+ul.list-unstyled {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul.list-unstyled li {
+  margin: 0;
+  padding: 0;
+}
+
+.mail-location {
+    font-size: 15px;
+  margin: 0; /* remove default p/span spacing */
+  padding: 0;
+}
+
+ul.list-unstyled li p {
+  margin: 0; /* remove paragraph spacing */
+  line-height: 1.2; /* optional: tighter lines */
+}
+
+ul.list-unstyled li div {
+  margin: 0;
+  padding: 0;
+}
+
+.d-flex.justify-content-center.align-content-start {
+  gap: 0; /* remove Bootstrap gap if any */
+}
+
 
 /* -------------------------------
    MOBILE VIEW (Average Mobile Size)
