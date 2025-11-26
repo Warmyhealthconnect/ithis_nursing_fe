@@ -122,32 +122,7 @@ function Admission() {
     <>
       <Titlebar title={'Admission'} />
 
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Payment RS 1200 admission fee (If you already paid upload the screenshot)</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-
-          <Button variant="primary" onClick={handleSubmit}>Upload</Button>
-
-          <Button variant="primary" onClick={downloadQR}>
-            Download QR
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      
 
 
       <div className="row mx-auto px-4 my-5 admission-section">
