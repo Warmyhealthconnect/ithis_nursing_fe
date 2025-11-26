@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
-    <header className="header">
+   <header className={`header ${!isHome ? "transparent-header" : ""}`}>
+
       {/* Left Side Logo */}
-      <div className="logo">
+      <Link to={'/'} className="logo">
         <img src="/HeaderImg/HeaderLogo.png" className="img-fluid" alt="Logo" />
-      </div>
+      </Link>
 
       {/* Right Side Buttons + Hamburger */}
       <div className="header-right">

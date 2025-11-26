@@ -22,15 +22,20 @@ export default function AdminLoginModal({ show, onClose }) {
             const response = await loginApi(user);
 
             if (response.status === 200) {
-                // ✅ Show success message
-                toast.success(response.data.message);
 
-                // ✅ Save token to sessionStorage
+                // ✅ Alert user
+                toast.success("✅ Login successful! Redirecting...");
+
+                // ✅ Save token
                 sessionStorage.setItem("token", response.data.token);
+
+                // ✅ Close modal
+                onClose();
 
                 // ✅ Redirect
                 nav("/admin");
-            } else {
+            }
+            else {
                 toast.error(response.data.message);
             }
         } catch (err) {

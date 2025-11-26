@@ -517,7 +517,7 @@
         font-size: 3vw;
     }
 
-    .home_section_6{
+    .home_section_6 {
         margin-bottom: 10vh;
         /* border-top: 2px solid black; */
     }
@@ -566,7 +566,7 @@
         justify-content: start;
         align-items: center;
         margin-bottom: 3vh;
-        padding:  0;
+        padding: 0;
     }
 
     .home_section_6_viewmore a {
@@ -579,4 +579,57 @@
         transform: rotate(-45deg);
         margin-left: 5px;
     }
+}
+
+/* --- Section 7: Why Ithis --- */
+.home_section_7 {
+    margin-bottom: 50px;
+}
+
+.home_section_7-top {
+    background-color: #183A62;
+    height: 700px;
+    padding: 5%;
+}
+
+.text-section {
+    width: 40%;
+    color: white;
+}
+
+.home_section_7-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 equal columns */
+    height: 500px;
+    /* set height as needed */
+    width: 100%;
+}
+
+.grid_box {
+    height: 100%;
+}
+
+/* Left box color */
+.left_box {
+    background-image: url('/titlebar/background2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .left_box {
+        background-image: url('/titlebar/background2.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+
+        /* KEEP COVER FEEL */
+        background-size: 130%;
+    }
+
+
+}
+
+/* Right box color */
+.right_box {
+    background-color: #f2c94c;
+    /* yellow */
 }

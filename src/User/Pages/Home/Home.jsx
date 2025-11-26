@@ -168,6 +168,20 @@ function Home() {
         </div>
       </section >
 
+
+      {/* <section className='home_section_7'>
+        <div className="home_section_7-top">
+          <div className="text-section">
+            <p style={{ fontSize: '20px' }}>Why Ithis</p>
+            <p style={{ fontSize: '35px' }}>We provide quality training, expert guidance, and a supportive environment for a successful nursing career</p>
+          </div>
+
+        </div>
+        <div className="home_section_7-bottom">
+          <div className="grid_box left_box"></div>
+          <div className="grid_box right_box"></div>
+        </div>
+      </section> */}
     </>
   )
 }

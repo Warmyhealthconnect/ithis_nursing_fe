@@ -15,6 +15,16 @@
     z-index: 1000; /* 👈 keeps header above banner */
 }
 
+.transparent-header {
+    background-color: transparent !important;
+    box-shadow: none !important;
+
+    background-color: transparent !important;
+    box-shadow: none !important;
+
+
+}
+
 
 .logo img {
     height: 60px;
