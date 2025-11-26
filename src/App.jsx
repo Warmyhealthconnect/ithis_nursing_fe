@@ -18,6 +18,7 @@ import PayUCheckout from './User/Components/PayUCheckout'
 import StudentDetails from './Admin/Components/StudentDetails/StudentDetails'
 import { ToastContainer } from 'react-bootstrap'
 import ProtectedRoute from './Admin/Components/ProtectedRoute'
+import AdmissionReport from './User/Pages/AdmissionReport/AdmissionReport'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,6 +37,7 @@ function App() {
         <Route path='/departments' element={<Department />} />
         <Route path='/facilities' element={<Facilities />} />
         <Route path='/admission' element={<Admission />} />
+        <Route path='/admissionreport' element={<AdmissionReport />} />
         <Route path='/payu' element={<PayUCheckout />} />
 
         <Route

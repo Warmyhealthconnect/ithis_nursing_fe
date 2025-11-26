@@ -1,0 +1,243 @@
+.admission-report {
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #0f1f3d;
+}
+
+.admission-hero {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(120deg, rgba(12, 41, 92, 0.8), rgba(17, 70, 142, 0.6)),
+    url('/HomeImages/image 3.png') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-actions {
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  display: flex;
+  gap: 12px;
+}
+
+.hero-title {
+  color: #fff;
+  font-size: 38px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.ghost-btn,
+.solid-btn {
+  border-radius: 18px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.ghost-btn {
+  background: #fff;
+  color: #0f1f3d;
+  border-color: #e8ecf4;
+}
+
+.ghost-btn:hover {
+  background: #f5f7fb;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.solid-btn {
+  background: #0f1f3d;
+  color: #fff;
+  border-color: #0f1f3d;
+}
+
+.solid-btn:hover {
+  background: #12294f;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.admission-progress {
+  margin: -40px auto 60px;
+  width: min(86%, 980px);
+}
+
+.progress-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 44px;
+}
+
+.progress-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  height: 4px;
+  background: #1f4e8f;
+  transform: translateY(-50%);
+  border-radius: 999px;
+}
+
+.progress-dot {
+  position: relative;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #1f4e8f;
+  border: 4px solid #f5f6fa;
+  box-shadow: 0 0 0 4px #1f4e8f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-dot::after {
+  content: '';
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: translate(-1px, -1px) rotate(-45deg);
+}
+
+.admission-success {
+  background: #fff;
+  border-radius: 16px;
+  padding: 50px 32px;
+  width: min(90%, 860px);
+  margin: 0 auto 60px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.admission-success h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: #0f1f3d;
+}
+
+.admission-success p {
+  font-size: 16px;
+  color: #4d5c75;
+  margin: 0 auto 28px;
+  max-width: 640px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.secondary-btn {
+  background: #1f4e8f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 170px;
+  box-shadow: 0 8px 18px rgba(31, 78, 143, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: #244f83;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(31, 78, 143, 0.38);
+}
+
+.brand-band {
+  background: #1f3e6b;
+  color: #b7c7df;
+  padding: 80px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-text {
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+}
+
+@media (max-width: 768px) {
+  .admission-hero {
+    height: 260px;
+  }
+
+  .hero-actions {
+    top: 16px;
+    right: 16px;
+    gap: 10px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .admission-progress {
+    margin: -32px auto 40px;
+    width: 94%;
+  }
+
+  .admission-success {
+    padding: 36px 24px;
+    width: 94%;
+  }
+
+  .admission-success h2 {
+    font-size: 22px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .secondary-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .progress-line {
+    padding: 0 8px;
+  }
+
+  .progress-line::before {
+    left: 8px;
+    right: 8px;
+  }
+}
