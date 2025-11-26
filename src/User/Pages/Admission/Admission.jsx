@@ -31,7 +31,31 @@ function Admission() {
 
     const { basicDetails, parentDetails, address, qualificationDetails, documents, declaration } = details;
 
-
+    // -------------------- Check required fields --------------------
+    if (
+      !basicDetails.name ||
+      !basicDetails.mobile ||
+      !basicDetails.email ||
+      !basicDetails.dob ||
+      !basicDetails.gender ||
+      !basicDetails.religion ||
+      !basicDetails.casteCategory ||
+      !parentDetails.parentName ||
+      !parentDetails.guardianMobile ||
+      !qualificationDetails.marks.chemistry ||
+      !qualificationDetails.marks.physics ||
+      !qualificationDetails.marks.english ||
+      !qualificationDetails.marks.biologyOrEquivalent ||
+      !qualificationDetails.marks.total ||
+      !documents.sslcProof ||
+      !documents.plusTwoCertificate ||
+      !documents.signatures ||
+      !declaration.prospectusAgreement ||
+      !declaration.truthDeclaration
+    ) {
+      alert("Please fill all required fields before submitting!");
+      return; // stop submission
+    }
 
     // -------------------- Submit form --------------------
     try {
