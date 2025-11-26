@@ -86,6 +86,7 @@ function Admission() {
 
       // -------------------- Success --------------------
       alert("Application submitted successfully!");
+      
       // nav('/payu', {
       //   state: {
       //     applicationNumber: res?.data?.applicationNumber,

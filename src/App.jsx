@@ -19,6 +19,8 @@ import StudentDetails from './Admin/Components/StudentDetails/StudentDetails'
 import { ToastContainer } from 'react-bootstrap'
 import ProtectedRoute from './Admin/Components/ProtectedRoute'
 import BSCnursing from './User/Pages/BSC Nursing/BSCnursing'
+import AdmissionSummary from './User/Pages/AdmissionSummary/AdmissionSummary'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,7 +40,8 @@ function App() {
         <Route path='/facilities' element={<Facilities />} />
         <Route path='/admission' element={<Admission />} />
         <Route path='/payu' element={<PayUCheckout />} />
-        <Route path='//academics/nursing' element={<BSCnursing />} />
+        <Route path='/academics/nursing' element={<BSCnursing />} />
+        <Route path='/admissionsummary' element={<AdmissionSummary />} />
 
         <Route
           path="/admin"
