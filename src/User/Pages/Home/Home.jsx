@@ -13,6 +13,40 @@ function Home() {
       });
     }
   }, []);
+
+  const features = [
+    {
+      icon: "bi-pc-display",
+      title: "Advanced nursing laboratories & digital classrooms",
+      desc: "Our advanced nursing labs and digital classrooms offer a modern, tech-enabled learning environment. They enhance practical skills and support interactive, effective teaching."
+    },
+    {
+      icon: "bi-mortarboard-fill",
+      title: "Experienced & student-focused faculty",
+      desc: "Our experienced and student-focused faculty provide expert guidance and personalized support. They ensure growth in confidence and skill."
+    },
+    {
+      icon: "bi-building-check",
+      title: "Safe, supportive and student-friendly campus environment",
+      desc: "We offer a safe, supportive and student-friendly campus environment that fosters comfort and confidence."
+    },
+    {
+      icon: "bi-award-fill",
+      title: "Value-based education & professional ethics",
+      desc: "We emphasize value-based education that shapes responsible and compassionate professionals."
+    },
+    {
+      icon: "bi-person-workspace",
+      title: "Individual mentoring and personality development support",
+      desc: "We offer mentoring and personality development support to help students grow academically and professionally."
+    },
+    {
+      icon: "bi-hospital",
+      title: "Strong industry–hospital collaboration for maximum clinical exposure",
+      desc: "We maintain strong industry–hospital collaborations to ensure maximum clinical exposure and real-world learning."
+    }
+  ];
+
   return (
     <>
       <section className='banner'>
@@ -169,19 +203,36 @@ function Home() {
       </section >
 
 
-      {/* <section className='home_section_7'>
-        <div className="home_section_7-top">
-          <div className="text-section">
-            <p style={{ fontSize: '20px' }}>Why Ithis</p>
-            <p style={{ fontSize: '35px' }}>We provide quality training, expert guidance, and a supportive environment for a successful nursing career</p>
-          </div>
+      <section className="home_section_7">
 
+        <div className="home_section_7-top">
+          <div className="home_section_7-top-paras">
+            <p style={{fontSize:"20px"}}>Why Ithis</p>
+            <p style={{fontSize:'30px'}}>We provide quality training, expert guidance, and a supportive environment for a successful nursing career</p>
+          </div>
         </div>
+
         <div className="home_section_7-bottom">
           <div className="grid_box left_box"></div>
           <div className="grid_box right_box"></div>
         </div>
-      </section> */}
+
+        {/* Floating White Box */}
+        <div className="floating-card">
+          {features.map((item, index) => (
+            <div className="feature-item" key={index}>
+              <i className={`bi ${item.icon}`}></i>
+              <div>
+                <h6>{item.title}</h6>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+      </section>
+
     </>
   )
 }

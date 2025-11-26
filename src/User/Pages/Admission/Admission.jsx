@@ -31,46 +31,7 @@ function Admission() {
 
     const { basicDetails, parentDetails, address, qualificationDetails, documents, declaration } = details;
 
-    // -------------------- Check required fields --------------------
-    if (
-      !basicDetails.name ||
-      !basicDetails.mobile ||
-      !basicDetails.email ||
-      !basicDetails.dob ||
-      !basicDetails.gender ||
-      !basicDetails.aadharNumber ||
-      !basicDetails.religion ||
-      !basicDetails.bloodGroup ||
-      !basicDetails.nationality ||
-      !basicDetails.casteCategory ||
-      !basicDetails.studentphoto ||
-      !parentDetails.parentName ||
-      !parentDetails.relationship ||
-      !parentDetails.guardianMobile ||
-      !parentDetails.parentEmail ||
-      !address.houseName ||
-      !address.street ||
-      !address.district ||
-      !address.state ||
-      !address.pincode ||
-      !address.addressmobile ||
-      !qualificationDetails.institutionAndState ||
-      !qualificationDetails.yearOfPassing ||
-      !qualificationDetails.registerNumber ||
-      !qualificationDetails.marks.chemistry ||
-      !qualificationDetails.marks.physics ||
-      !qualificationDetails.marks.english ||
-      !qualificationDetails.marks.biologyOrEquivalent ||
-      !qualificationDetails.marks.total ||
-      !documents.sslcProof ||
-      !documents.plusTwoCertificate ||
-      !documents.signatures ||
-      !declaration.prospectusAgreement ||
-      !declaration.truthDeclaration
-    ) {
-      alert("Please fill all required fields before submitting!");
-      return; // stop submission
-    }
+
 
     // -------------------- Submit form --------------------
     try {
@@ -416,7 +377,7 @@ function Admission() {
 
               <div className="row-inputs">
                 <label>
-                  Institution & State
+                  Board
                   <input type="text" name="institutionAndState" required onChange={(e) => setDetails({ ...details, qualificationDetails: { ...details.qualificationDetails, institutionAndState: e.target.value } })} />
                 </label>
               </div>

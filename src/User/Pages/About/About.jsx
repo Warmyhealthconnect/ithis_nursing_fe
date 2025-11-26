@@ -18,12 +18,18 @@ function About() {
                     <img src="/about/aboutusimg.png" style={{ borderRadius: "20px" }} className='img-fluid' alt="" />
                 </div>
 
-                <div className="about-para">
+                <div className="about-highlight">
+                    <span className="about-badge">More About us</span>
+
                     <p>
-                        The let College Of Nursing Is Dedicated To Prepare Skilled And Compassionate Nursing Professionals With Strong Ethical Values And Commitment To Excellence In Healthcare.
-                        The Institution Nurtures A Spirit Of Discipline, Responsibility, And Integrity, Empowering Students To Meet The Challenges Of The Ever-evolving Médical Field.
+                        The journey of trust, commitment, and sincere service started right from day one at Ithis. We believe in shaping skilled, compassionate, and confident healthcare professionals by nurturing them with knowledge, hands-on experience, and guidance. Every lecture, every lab, and every patient interaction is a part of this shared journey—one committed to touching lives, spreading hope, and making a difference in the world of healthcare.
+                    </p>
+
+                    <p>
+                        It is much more than a college; it is a trusted home wherein learning meets empathy, dreams are transformed into purpose, and every student is empowered to lead with care, courage, and integrity. With modern facilities, advanced labs, experienced faculty, and real-world hospital exposure, we offer an environment that inspires growth, fosters innovation, and builds the true spirit of nursing. The journey at Ithis is to create professionals who excel not only in skill but also carry the heart to heal, comfort, and uplift every life they touch.
                     </p>
                 </div>
+
 
                 <div className="two-boxes">
                     <div className="box1">

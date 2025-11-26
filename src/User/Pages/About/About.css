@@ -1,65 +1,100 @@
 .about-container {
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
 }
 
 .about-heading {
-    width: 900px;
-    text-align: center;
-    padding-top: 50px;
-    margin-top: 50px;
-    margin-bottom: 90px;
+  width: 900px;
+  text-align: center;
+  padding-top: 50px;
+  margin-top: 50px;
+  margin-bottom: 90px;
 }
 
 .about-heading h1 {
-    font-size: 50px;
+  font-size: 50px;
 
 }
 
 .img-container2 {
-    width: 93%;
+  width: 93%;
 }
 
-.about-para {
-    width: 75%;
+.about-highlight {
+  width: 100%;
+  background-color: #183A62;
+  padding: 50px 60px;
+  color: white;
+  margin: 60px 0 90px;
+  position: relative;
+  height: 500px;
+  background-image: url('/titlebar/background1.png');
 }
 
-.about-para p {
-    font-size: 30px;
-    text-align: center;
-    margin-top: 90px;
-    margin-bottom: 100px;
+.about-highlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(12, 34, 66, 0.738);
+  /* dark blue layer */
+
+  pointer-events: none;
 }
+
+
+.about-highlight p {
+  font-size: 20px;
+  line-height: 1.7;
+  margin-top: 20px;
+  color: #f1f1f1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Small label */
+.about-badge {
+  display: inline-block;
+  background-color: #e6e4d4;
+  color: #183A62;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
 
 .two-boxes {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 90px;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 30px;
+  margin-bottom: 90px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .box1 {
-    width: 700px;
-    height: 400px;
-    background-color: #E6E4D445;
-    border-radius: 10px;
-    padding: 50px;
+  width: 700px;
+  height: 400px;
+  background-color: #E6E4D445;
+  border-radius: 10px;
+  padding: 50px;
 
 }
 
-.box-heading{
-    font-size: 30px;
-    font-weight: 600;
+.box-heading {
+  font-size: 30px;
+  font-weight: 600;
 }
 
-.box-para{
-    font-size: 25px;
-    margin-top: 40px;
+.box-para {
+  font-size: 25px;
+  margin-top: 40px;
 }
 
 @media (max-width: 576px) {
@@ -90,16 +125,16 @@
     border-radius: 15px;
   }
 
-  .about-para {
+  .about-highlight {
+    padding: 25px 20px;
     width: 100%;
+    margin: 40px 0;
   }
 
-  .about-para p {
-    font-size: 4vw;
-    margin: 40px 0;
-    text-align: justify;
-    line-height: 1.6;
+  .about-highlight p {
+    font-size: 3.7vw;
   }
+
 
   .two-boxes {
     flex-direction: column;

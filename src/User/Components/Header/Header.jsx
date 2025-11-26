@@ -52,8 +52,8 @@ function Header() {
         <details onClick={(e) => e.stopPropagation()}>
           <summary>Academics<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
-            {/* <Link to="/academics/ug">Undergraduate</Link>
-            <Link to="/academics/pg">Postgraduate</Link>
+            <Link to="/academics/nursing">BSC Nursing</Link>
+            {/* <Link to="/academics/pg">Postgraduate</Link>
             <Link to="/academics/research">Research</Link> */}
           </div>
         </details>

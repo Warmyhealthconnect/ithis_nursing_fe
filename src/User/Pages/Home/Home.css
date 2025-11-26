@@ -307,7 +307,199 @@
     scale: .9;
 }
 
+.home_section_7{
+    margin-bottom: 120px;
+    margin-top: 120px;
+    position: relative;
+}
 
+.home_section_7-top{
+    background-color: #183A62;
+    height: 600px;
+}
+
+.home_section_7-top-paras{
+    padding: 4%;
+    width:40%;
+    color: white;
+}
+
+.text-section{
+    width: 40%;
+    color: white;
+}
+
+.home_section_7-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  height: 500px; /* set height as needed */
+  width: 100%;
+}
+
+.grid_box {
+  height: 100%;
+}
+
+/* Left box color */
+.left_box {
+  background:
+    linear-gradient(rgba(20, 30, 60, 0.45), rgba(0, 0, 0, 0.45)),
+    url('/titlebar/bg1.jpg');
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Right box color */
+.right_box {
+  background:
+    linear-gradient(rgba(20, 30, 60, 0.45), rgba(0, 0, 0, 0.45)),
+    url('/about/aboutusimg.png');
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.floating-card {
+  position: absolute;
+
+  /* move it vertically to overlap both sections */
+  top: 10%;
+  right: 5%;
+
+  width: 50%;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  height: 900px;
+
+  /* box-shadow: 0 10px 30px rgba(0,0,0,0.15); */
+  z-index: 10;
+}
+
+.feature-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Icons */
+.feature-item i {
+  font-size: 22px;
+  color: #17355c;
+  min-width: 28px;
+  margin-top: 4px;
+}
+
+/* Titles */
+.feature-item h6 {
+  font-weight: 600;
+  font-size: 27px;
+  margin-bottom: 4px;
+}
+
+/* Text */
+.feature-item p {
+  font-size: 17px;
+  color: #666;
+  line-height: 1.5;
+}
+@media (max-width: 1200px) {
+  .floating-card {
+    width: 60%;
+    height: auto;
+  }
+}
+
+@media (max-width: 992px) {
+
+  /* Stack floating card */
+  .floating-card {
+    position: static;
+    width: 90%;
+    margin: 20px auto;
+    height: auto;
+  }
+
+  /* Reduce top height */
+  .home_section_7-top {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .home_section_7-top-paras,
+  .text-section {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Reduce text size */
+  .home_section_7-top-paras p:first-child {
+    font-size: 16px !important;
+  }
+
+  .home_section_7-top-paras p:last-child {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Stack images vertically */
+  .home_section_7-bottom {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .grid_box {
+    height: 300px;
+  }
+
+  /* Reduce title and text */
+  .feature-item h6 {
+    font-size: 20px;
+  }
+
+  .feature-item p {
+    font-size: 14px;
+  }
+
+  .feature-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Spacing tighten */
+  .home_section_7 {
+    margin: 60px 0;
+  }
+
+  .floating-card {
+    padding: 20px;
+  }
+
+  .grid_box {
+    height: 220px;
+  }
+
+  .feature-item h6 {
+    font-size: 17px;
+  }
+
+  .feature-item p {
+    font-size: 13px;
+  }
+
+  .feature-item i {
+    font-size: 18px;
+  }
+}
 
 /* --- Tablet View --- */
 @media (max-width: 992px) {
@@ -582,54 +774,4 @@
 }
 
 /* --- Section 7: Why Ithis --- */
-.home_section_7 {
-    margin-bottom: 50px;
-}
 
-.home_section_7-top {
-    background-color: #183A62;
-    height: 700px;
-    padding: 5%;
-}
-
-.text-section {
-    width: 40%;
-    color: white;
-}
-
-.home_section_7-bottom {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 equal columns */
-    height: 500px;
-    /* set height as needed */
-    width: 100%;
-}
-
-.grid_box {
-    height: 100%;
-}
-
-/* Left box color */
-.left_box {
-    background-image: url('/titlebar/background2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    .left_box {
-        background-image: url('/titlebar/background2.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-
-        /* KEEP COVER FEEL */
-        background-size: 130%;
-    }
-
-
-}
-
-/* Right box color */
-.right_box {
-    background-color: #f2c94c;
-    /* yellow */
-}
