@@ -20,9 +20,17 @@ function Header() {
       {/* Right Side Buttons + Hamburger */}
       <div className="header-right">
         <div className="header-buttons">
-          <a
+          {/* <a
             href="/ithis.pdf"
             download
+            className="btn btn-primary"
+            style={{ textDecoration: "none" }}
+          >
+            Download Prospectus
+          </a> */}
+          <a
+            href=""
+            
             className="btn btn-primary"
             style={{ textDecoration: "none" }}
           >
@@ -97,8 +105,9 @@ function Header() {
         <Link to="/contact">Contact</Link>
 
         {/* Show this only in mobile view */}
+
         <button className="btn btn-primary mobile-prospectus-btn">
-          <a href='/ithis.pdf' download>
+          <a href='' >
             <span className="mobile-download">Download Prospectus</span>
           </a>
         </button>

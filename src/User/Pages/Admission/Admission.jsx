@@ -122,7 +122,7 @@ function Admission() {
     <>
       <Titlebar title={'Admission'} />
 
-      
+
 
 
       <div className="row mx-auto px-4 my-5 admission-section">
