@@ -122,7 +122,7 @@ function Admission() {
     <>
       <Titlebar title={'Admission'} />
 
-      <Modal
+      {/* <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
@@ -149,7 +149,7 @@ function Admission() {
             Download QR
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
 
 
       <div className="row mx-auto px-4 my-5 admission-section">
@@ -530,7 +530,7 @@ function Admission() {
               {/* <button type="submit" className="btn btn-light" onClick={(e) => handleSubmit(e)}>
                 Submit Application
               </button> */}
-              <button type="submit" className="btn btn-light" onClick={handleShow}>
+              <button type="submit" className="btn btn-light" onClick={handleSubmit}>
                 Submit Application
               </button>
             </div>
