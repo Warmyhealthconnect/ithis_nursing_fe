@@ -122,7 +122,7 @@ function Admission() {
     <>
       <Titlebar title={'Admission'} />
 
-      {/* <Modal
+      <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
@@ -133,9 +133,7 @@ function Admission() {
         </Modal.Header>
 
         <Modal.Body>
-          <img src="/qr.png" alt="QR" className="img-fluid" />
-          <label htmlFor="" className='mb-3'>Upload payment screenshot</label>
-          <input type="file" accept="image/*" placeholder='Upload payment screenshot' className='form-control w-100' onChange={(e) => setDetails({ ...details, documents: { ...details.documents, screenshot: e.target.files[0] } })} />
+          
         </Modal.Body>
 
         <Modal.Footer>
@@ -149,7 +147,7 @@ function Admission() {
             Download QR
           </Button>
         </Modal.Footer>
-      </Modal> */}
+      </Modal>
 
 
       <div className="row mx-auto px-4 my-5 admission-section">
