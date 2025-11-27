@@ -16,7 +16,14 @@ function AdminDash() {
     try {
       const res = await getStudentsApi();
       const studentsArray = Array.isArray(res.data) ? res.data : res.data.students;
-      setStudentlist(studentsArray);
+
+      // ✅ Sort by earliest date & time first
+      const sortedStudents = [...studentsArray].sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
+
+      setStudentlist(sortedStudents);
+
     } catch (err) {
       console.error("Error fetching students:", err);
     }
@@ -76,19 +83,20 @@ function AdminDash() {
     const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
     saveAs(blob, `students_${new Date().toLocaleDateString()}.xlsx`);
   };
+
   return (
     <div className="admin-dashboard">
       <h1>Student Details</h1>
       <button className="download-btn" onClick={downloadExcel}>
         Download All Students Excel
       </button>
+
       <table className="students-table">
         <thead>
           <tr>
             <th>Name</th>
             <th>Application number</th>
             <th>Phone</th>
-            {/* <th>Payment status</th> */}
             <th>Action</th>
           </tr>
         </thead>
@@ -98,14 +106,16 @@ function AdminDash() {
               <td>{student.basicDetails.name}</td>
               <td>{student.basicDetails.applicationNumber}</td>
               <td>{student.basicDetails.mobile}</td>
-              {/* <td>{student.payment.status}</td> */}
               <td>
-                <Link to={`/admin/studentdetails/${student._id}`} className="details-btn">More Details</Link>
+                <Link to={`/admin/studentdetails/${student._id}`} className="details-btn">
+                  More Details
+                </Link>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
     </div>
   );
 }
