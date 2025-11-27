@@ -21,7 +21,7 @@ function Header() {
       <div className="header-right">
         <div className="header-buttons">
           <a
-            href="/ithis.pdf"
+            href="/ithis_new.pdf"
             download
             className="btn btn-primary"
             style={{ textDecoration: "none" }}
@@ -83,6 +83,8 @@ function Header() {
             <Link to="/admission">Criteria</Link>
             <Link to="/admission">Process</Link>
             <Link to="/admission">Fee Structure</Link>
+            <Link to="/list/joined">Joined Students</Link>
+            <Link to="/list/not-joined">Non-joined Students</Link>
           </div>
         </details>
 

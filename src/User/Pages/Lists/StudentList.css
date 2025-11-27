@@ -1,0 +1,86 @@
+.studentlist_wrapper {
+  margin-top: 120px;
+  margin-bottom: 80px;
+  padding: 0 4vw;
+}
+
+.studentlist_title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #183559;
+}
+
+.table_container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: white;
+}
+
+.student_table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.student_table thead {
+  background-color: #183559;
+  color: white;
+}
+
+.student_table th,
+.student_table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.student_table tr:hover {
+  background-color: #f5f7fa;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  background-color: #183559;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .95rem;
+  transition: .2s;
+}
+
+.pagination button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #0f253f;
+}
+
+.page_info {
+  font-size: .95rem;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .studentlist_title {
+    font-size: 1.5rem;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

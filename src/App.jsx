@@ -20,6 +20,7 @@ import { ToastContainer } from 'react-bootstrap'
 import ProtectedRoute from './Admin/Components/ProtectedRoute'
 import BSCnursing from './User/Pages/BSC Nursing/BSCnursing'
 import AdmissionSummary from './User/Pages/AdmissionSummary/AdmissionSummary'
+import StudentList from './User/Pages/Lists/StudentList'
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
         <Route path='/departments' element={<Department />} />
         <Route path='/facilities' element={<Facilities />} />
         <Route path='/admission' element={<Admission />} />
+        <Route path='/list/joined' element={<StudentList type={'joined'}/>}/>
+        <Route path='/list/not-joined' element={<StudentList type={'notJoined'}/>}/>
         <Route path='/payu' element={<PayUCheckout />} />
         <Route path='/academics/nursing' element={<BSCnursing />} />
         <Route path='/admissionsummary' element={<AdmissionSummary />} />
