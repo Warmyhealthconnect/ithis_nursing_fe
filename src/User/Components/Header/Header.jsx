@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -6,8 +6,39 @@ import { useLocation } from "react-router-dom";
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const academicsRef = useRef(null);
+  const admissionRef = useRef(null);
+  const annexureRef = useRef(null);
+
+
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    if (!menuOpen) {
+      // menu closed, collapse all
+      academicsRef.current?.removeAttribute("open");
+      admissionRef.current?.removeAttribute("open");
+      annexureRef.current?.removeAttribute("open");
+    }
+  }, [menuOpen]);
+
+
+  function toggleDropdown(ref) {
+    const isOpen = ref.current.hasAttribute("open");
+
+    // close all
+    academicsRef.current?.removeAttribute("open");
+    admissionRef.current?.removeAttribute("open");
+    annexureRef.current?.removeAttribute("open");
+
+    // re-open the clicked one if it was closed
+    if (!isOpen) {
+      ref.current.setAttribute("open", "");
+    }
+  }
+
+
 
   return (
     <header className={`header ${!isHome ? "transparent-header" : ""}`}>
@@ -52,15 +83,19 @@ function Header() {
       </div>
 
       {/* Slide-down Menu */}
-      <nav className={`mobile-menu ${menuOpen ? "open" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+      <nav className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
 
         {/* Academics Dropdown */}
-        <details onClick={(e) => e.stopPropagation()}>
+        <details ref={academicsRef} onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleDropdown(academicsRef)
+        }}>
           <summary>Academics<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
-            <Link to="/academics/nursing">BSC Nursing</Link>
+            <Link  to="/academics/nursing" onClick={() => setMenuOpen(false)}>BSC Nursing</Link>
             {/* <Link to="/academics/pg">Postgraduate</Link>
             <Link to="/academics/research">Research</Link> */}
           </div>
@@ -77,7 +112,11 @@ function Header() {
         </details> */}
 
         {/* Admission Dropdown */}
-        <details onClick={(e) => e.stopPropagation()}>
+        <details ref={admissionRef} onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation()
+          toggleDropdown(admissionRef)
+        }}>
           <summary>
             Admission
             <span className="summary-badge">New</span>
@@ -86,12 +125,12 @@ function Header() {
             </span>
           </summary>
           <div className="dropdown-links">
-            <Link to="/admission">Criteria</Link>
-            <Link to="/admission">Process</Link>
-            <Link to="/admission">Fee Structure</Link>
-            <Link to="/list/joined">Joined Students</Link>
-            <Link to="/list/not-joined">Non-joined Students</Link>
-            <Link to="/info" className="with-badge">
+            <Link to="/admission" onClick={() => setMenuOpen(false)}>Criteria</Link>
+            <Link to="/admission" onClick={() => setMenuOpen(false)}>Process</Link>
+            <Link to="/admission" onClick={() => setMenuOpen(false)}>Fee Structure</Link>
+            <Link to="/list/joined" onClick={() => setMenuOpen(false)}>Joined Students</Link>
+            <Link to="/list/not-joined" onClick={() => setMenuOpen(false)}>Non-joined Students</Link>
+            <Link to="/info" onClick={() => setMenuOpen(false)} className="with-badge">
               Spot Admission
               <span className="item-badge">New</span>
             </Link>
@@ -99,7 +138,11 @@ function Header() {
         </details>
 
         {/* Annexure Dropdown */}
-        <details onClick={(e) => e.stopPropagation()}>
+        <details ref={annexureRef} onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleDropdown(annexureRef)
+        }}>
           <summary>Annexure <span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
             <Link to="/annexure/a">Annexure-x</Link>
