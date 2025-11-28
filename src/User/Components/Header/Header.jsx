@@ -119,7 +119,6 @@ function Header() {
         }}>
           <summary>
             Admission
-            <span className="summary-badge">New</span>
             <span className="arrow">
               <i class="fa-solid fa-chevron-left"></i>
             </span>
@@ -132,7 +131,6 @@ function Header() {
             <Link to="/list/not-joined" onClick={() => setMenuOpen(false)}>Non-joined Students</Link>
             <Link to="/info" onClick={() => setMenuOpen(false)} className="with-badge">
               Spot Admission
-              <span className="item-badge">New</span>
             </Link>
           </div>
         </details>

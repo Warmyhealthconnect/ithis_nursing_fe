@@ -12,7 +12,7 @@ const Info = () => {
                         It is decided to conduct spot allotment for the programme
                         <strong> BSc Nursing</strong> at
                         <strong> IET College of Nursing, Campus Malappuram</strong> on
-                        <strong> 28th Friday 2025</strong>, <strong>9 30 am</strong> till <strong>4 PM</strong>.
+                        <strong> 28th Friday 2025</strong>, <strong>9 30 am</strong> till <strong>2 PM</strong>.
                     </p> 
                 </div>
             </div>
