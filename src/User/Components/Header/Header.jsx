@@ -78,13 +78,23 @@ function Header() {
 
         {/* Admission Dropdown */}
         <details onClick={(e) => e.stopPropagation()}>
-          <summary>Admission<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
+          <summary>
+            Admission
+            <span className="summary-badge">New</span>
+            <span className="arrow">
+              <i class="fa-solid fa-chevron-left"></i>
+            </span>
+          </summary>
           <div className="dropdown-links">
             <Link to="/admission">Criteria</Link>
             <Link to="/admission">Process</Link>
             <Link to="/admission">Fee Structure</Link>
             <Link to="/list/joined">Joined Students</Link>
             <Link to="/list/not-joined">Non-joined Students</Link>
+            <Link to="/info" className="with-badge">
+              Spot Admission
+              <span className="item-badge">New</span>
+            </Link>
           </div>
         </details>
 

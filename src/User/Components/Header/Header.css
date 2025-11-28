@@ -12,7 +12,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* 👈 keeps header above banner */
+    z-index: 1000;
+    /* 👈 keeps header above banner */
 }
 
 .transparent-header {
@@ -148,11 +149,11 @@
     /* below header */
 }
 
-.mobile-download{
+.mobile-download {
     color: white;
 }
 
-.mobile-download:hover{
+.mobile-download:hover {
     color: #081C34;
 }
 
@@ -206,6 +207,27 @@
     margin-left: 8px;
     transition: transform 0.3s ease;
     display: inline-block;
+}
+
+.summary-badge,
+.item-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-left: 6px;
+    color: white;
+    background-color: #d9534f; /* red */
+    flex-shrink: 0;
+}
+
+/* Make Spot Admission link align properly */
+.with-badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* Rotate icon when details is open */
@@ -270,7 +292,7 @@ details[open] .arrow i {
         display: none;
     }
 
-    .mobile-menu{
+    .mobile-menu {
         top: 60px;
         height: calc(100vh - 60px);
     }
@@ -278,7 +300,7 @@ details[open] .arrow i {
     .mobile-prospectus-btn {
         display: block;
         width: 60%;
-        margin: 0vh 0vw !important;        
+        margin: 0vh 0vw !important;
     }
 
     .header-buttons {
@@ -304,11 +326,17 @@ details[open] .arrow i {
         font-size: 12px;
     }
 
-    .mobile-menu summary{
+    .mobile-menu summary {
         font-size: 12px;
     }
 
-    .dropdown-links a{
+    .dropdown-links a {
         font-size: 11px !important;
+    }
+
+    .summary-badge,
+    .item-badge {
+        font-size: 9px;
+        padding: 2px 5px;
     }
 }
