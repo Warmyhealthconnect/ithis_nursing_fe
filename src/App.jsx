@@ -20,8 +20,7 @@ import { ToastContainer } from 'react-bootstrap'
 import ProtectedRoute from './Admin/Components/ProtectedRoute'
 import BSCnursing from './User/Pages/BSC Nursing/BSCnursing'
 import AdmissionSummary from './User/Pages/AdmissionSummary/AdmissionSummary'
-import StudentList from './User/Pages/Lists/StudentList'
-import Info from './User/Pages/News&events/components/Info'
+import AdmissionList from './User/Pages/Admission/Components/AdmissionList'
 
 
 function App() {
@@ -41,9 +40,8 @@ function App() {
         <Route path='/departments' element={<Department />} />
         <Route path='/facilities' element={<Facilities />} />
         <Route path='/admission' element={<Admission />} />
-        <Route path='/list/joined' element={<StudentList type={'joined'}/>}/>
-        <Route path='/list/not-joined' element={<StudentList type={'notJoined'}/>}/>
-        <Route path='/info' element={<Info/>}/>
+        <Route path='/merit-admission' element={<AdmissionList isMerit={true}/>}/>
+        <Route path='/spot-admission' element={<AdmissionList isMerit={false}/>}/>
         <Route path='/payu' element={<PayUCheckout />} />
         <Route path='/academics/nursing' element={<BSCnursing />} />
         <Route path='/admissionsummary' element={<AdmissionSummary />} />

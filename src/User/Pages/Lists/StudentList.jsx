@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./StudentList.css";
-import { studentsList } from "../../../data/studentDetails.js";
 
 
-const StudentList = ({ type }) => {
+const StudentList = ({ type, isMerit, data }) => {
 
-    useEffect(() => {
-        setPage(1);
-    }, [type]);
-
-
-    const data = studentsList.managementMeritQuota[type] || [];
+    const base =
+        isMerit ? "Management Merit Quota" : "Spot Admission";
 
     const title =
         type === "joined"
-            ? "Management Merit Quota – Joining Candidates"
+            ? `${base} – Joining Candidates`
             : type === "notJoined"
-                ? "Management Merit Quota – Not Joined Candidates"
+                ? `${base} – Not Joined Candidates`
                 : "Candidates";
+
 
     const [page, setPage] = useState(1);
 

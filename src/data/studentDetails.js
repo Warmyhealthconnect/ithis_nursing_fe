@@ -1,4 +1,17 @@
 export const studentsList = {
+  "spotAdmission": {
+    "joined": [
+      { "index": 1, "name": "Diya Harini S" },
+      { "index": 2, "name": "Asna N" },
+      { "index": 3, "name": "Nesrin Fathima" },
+    ],
+    "notJoined": [
+      { "index": 1, "name": "Karthika D" },
+      { "index": 2, "name": "Abhirami S" },
+      { "index": 3, "name": "Gouri Nandana" },
+      { "index": 4, "name": "Muhammed Riswan" },
+    ]
+  },
   "managementMeritQuota": {
     "joined": [
       { "index": 1, "name": "Angel Mathew" },

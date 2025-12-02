@@ -95,7 +95,7 @@ function Header() {
         }}>
           <summary>Academics<span className="arrow"><i class="fa-solid fa-chevron-left"></i></span></summary>
           <div className="dropdown-links">
-            <Link  to="/academics/nursing" onClick={() => setMenuOpen(false)}>BSC Nursing</Link>
+            <Link to="/academics/nursing" onClick={() => setMenuOpen(false)}>BSC Nursing</Link>
             {/* <Link to="/academics/pg">Postgraduate</Link>
             <Link to="/academics/research">Research</Link> */}
           </div>
@@ -127,11 +127,8 @@ function Header() {
             <Link to="/admission" onClick={() => setMenuOpen(false)}>Criteria</Link>
             <Link to="/admission" onClick={() => setMenuOpen(false)}>Process</Link>
             <Link to="/admission" onClick={() => setMenuOpen(false)}>Fee Structure</Link>
-            <Link to="/list/joined" onClick={() => setMenuOpen(false)}>Joined Students</Link>
-            <Link to="/list/not-joined" onClick={() => setMenuOpen(false)}>Non-joined Students</Link>
-            <Link to="/info" onClick={() => setMenuOpen(false)} className="with-badge">
-              Spot Admission
-            </Link>
+            <Link to="/merit-admission" onClick={() => setMenuOpen(false)}>Management Merit Admission</Link>
+            <Link to="/spot-admission" onClick={() => setMenuOpen(false)}>Spot Admission</Link>
           </div>
         </details>
 
