@@ -34,7 +34,7 @@ export const studentsList = {
       { "index": 4, "name": "Muhammed Anshid" },
       { "index": 5, "name": "Asna N" },
       { "index": 6, "name": "Meera R Sunil" },
-      { "index": 7, "name": "Safa Sulaikha" },
+      { "index": 7, "name": "Nesrin Fathima" },
       { "index": 8, "name": "Anusha Mary Abraham" },
       { "index": 9, "name": "Adwaith Arun" },
       { "index": 10, "name": "Aashima Ashok" },
@@ -58,11 +58,7 @@ export const studentsList = {
       { "index": 28, "name": "Archana Rajappan" },
       { "index": 29, "name": "Afrin K S" },
       { "index": 30, "name": "Shilna Raj P" },
-      { "index": 31, "name": "Thanshid Shaheem C" },
-      { "index": 32, "name": "Sariga S" },
-      { "index": 33, "name": "Asin Sam" },
-      { "index": 34, "name": "Karthika D" },
-      { "index": 35, "name": "Adityan Hareesh" }
+      { "index": 31, "name": "Thanshid Shaheem C" }
     ]
   }
 }
