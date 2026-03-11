@@ -127,7 +127,7 @@ function Header() {
             <Link to="/admission" onClick={() => setMenuOpen(false)}>Criteria</Link>
             <Link to="/admission" onClick={() => setMenuOpen(false)}>Process</Link>
             <Link to="/admission" onClick={() => setMenuOpen(false)}>Fee Structure</Link>
-            <Link to="/merit-admission" onClick={() => setMenuOpen(false)}>Management Merit Admission</Link>
+            <Link to="/merit-admission" onClick={() => setMenuOpen(false)}>Management Admission</Link>
             <Link to="/spot-admission" onClick={() => setMenuOpen(false)}>Spot Admission</Link>
           </div>
         </details>

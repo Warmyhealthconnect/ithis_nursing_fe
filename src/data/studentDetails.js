@@ -12,7 +12,7 @@ export const studentsList = {
       { "index": 4, "name": "Muhammed Riswan" },
     ]
   },
-  "managementMeritQuota": {
+  "managementQuota": {
     "joined": [
       { "index": 1, "name": "Angel Mathew" },
       { "index": 2, "name": "Sreyas M" },
@@ -28,37 +28,37 @@ export const studentsList = {
       { "index": 12, "name": "Ashna Basheer" }
     ],
     "notJoined": [
-      { "index": 1, "name": "Ajmal Rahman" },
-      { "index": 2, "name": "Fidha Fathima" },
-      { "index": 3, "name": "Diya Harini S" },
-      { "index": 4, "name": "Muhammed Anshid" },
+      { "index": 1, "name": "Vahid AS" },
+      { "index": 2, "name": "Thansi M" },
+      { "index": 3, "name": "Diya Harini" },
+      { "index": 4, "name": "Gopu Ajay" },
       { "index": 5, "name": "Asna N" },
       { "index": 6, "name": "Meera R Sunil" },
-      { "index": 7, "name": "Nesrin Fathima" },
-      { "index": 8, "name": "Anusha Mary Abraham" },
+      { "index": 7, "name": "Aziya Ameerudheen" },
+      { "index": 8, "name": "Anupama S Manoj" },
       { "index": 9, "name": "Adwaith Arun" },
-      { "index": 10, "name": "Aashima Ashok" },
+      { "index": 10, "name": "Aashmika Ashok" },
       { "index": 11, "name": "Jesna N" },
-      { "index": 12, "name": "Aleena S Shaji" },
+      { "index": 12, "name": "Aleena Andrews" },
       { "index": 13, "name": "Alfiya R" },
-      { "index": 14, "name": "Sreelekshmi C G" },
+      { "index": 14, "name": "Sreelakshmi G" },
       { "index": 15, "name": "Abin Eby" },
-      { "index": 16, "name": "Seenamol T" },
+      { "index": 16, "name": "Seena Mol T" },
       { "index": 17, "name": "Alfiya Jaleel" },
-      { "index": 18, "name": "Hiba Salam K P" },
+      { "index": 18, "name": "Riya Fathima" },
       { "index": 19, "name": "Aleena Mariya Belraj" },
-      { "index": 20, "name": "Bibitha V S" },
-      { "index": 21, "name": "Manjima T T" },
+      { "index": 20, "name": "Gouri Nandhana" },
+      { "index": 21, "name": "Renu S" },
       { "index": 22, "name": "Abhirami S" },
       { "index": 23, "name": "Adithya S" },
-      { "index": 24, "name": "Umarsha" },
-      { "index": 25, "name": "Hadhisha Sulthana K K" },
-      { "index": 26, "name": "Sayona J Shaji" },
-      { "index": 27, "name": "Diya Nethaji" },
-      { "index": 28, "name": "Archana Rajappan" },
-      { "index": 29, "name": "Afrin K S" },
-      { "index": 30, "name": "Shilna Raj P" },
-      { "index": 31, "name": "Thanshid Shaheem C" }
+      { "index": 24, "name": "Akash AU" },
+      { "index": 25, "name": "Fathima Noora CP" },
+      { "index": 26, "name": "Daya Monachan" },
+      { "index": 27, "name": "Valsalya Shajan" },
+      { "index": 28, "name": "Aparna Chandran" },
+      { "index": 29, "name": "Safa Sulekha" },
+      { "index": 30, "name": "Midhuna Manoj" },
+      { "index": 31, "name": "Jesna Jose" }
     ]
   }
 }

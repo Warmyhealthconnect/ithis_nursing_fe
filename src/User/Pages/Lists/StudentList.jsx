@@ -5,7 +5,7 @@ import "./StudentList.css";
 const StudentList = ({ type, isMerit, data }) => {
 
     const base =
-        isMerit ? "Management Merit Quota" : "Spot Admission";
+        isMerit ? "Management Quota" : "Spot Admission";
 
     const title =
         type === "joined"

@@ -8,7 +8,7 @@ const AdmissionList = ({ isMerit }) => {
     const [activeTab, setActiveTab] = useState("joined");
 
     const data = isMerit
-        ? (studentsList.managementMeritQuota[activeTab] || [])
+        ? (studentsList.managementQuota[activeTab] || [])
         : (studentsList.spotAdmission[activeTab] || []);
 
 
@@ -23,7 +23,7 @@ const AdmissionList = ({ isMerit }) => {
             <div className="info_wrapper">
                 <div className="info_card">
                     <h2 className="info_title">
-                        {isMerit ? 'Management Merit Notice' : 'Spot Admission Notice'}
+                        {isMerit ? 'Management Notice' : 'Spot Admission Notice'}
                     </h2>
                     {isMerit ? (
                         <p className="info_text">
